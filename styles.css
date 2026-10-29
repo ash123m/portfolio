@@ -133,9 +133,10 @@ button {
 }
 
 .container {
-  max-width: 880px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(20px, 4vw, 44px);
+  width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -192,11 +193,31 @@ header#site-header {
   flex-direction: column;
 }
 
+.brand-name-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .brand-name {
   font-weight: 700;
   font-size: 0.98rem;
   letter-spacing: -0.2px;
   line-height: 1.2;
+}
+
+.brand-external-icon {
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.brand-link:hover .brand-external-icon {
+  transform: translate(2px, -2px);
+  color: var(--primary);
+}
+
+.brand-link:hover .brand-name {
+  color: var(--primary);
 }
 
 .brand-role {
@@ -403,11 +424,11 @@ header#site-header {
    Hero Section
    -------------------------------------------------------------------------- */
 .hero {
-  padding: 56px 0 40px;
-  display: flex;
+  padding: 56px 0 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  gap: clamp(32px, 5vw, 60px);
 }
 
 .hero-left {
@@ -584,55 +605,45 @@ header#site-header {
   color: var(--text) !important;
 }
 
-/* Hero Right: Avatar Presentation */
+/* Hero Right: Avatar Presentation (Fluid & Professionally Sized) */
 .hero-right {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .avatar-card {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
 }
 
 .avatar-wrapper {
-  width: 156px;
-  height: 156px;
-  border-radius: var(--radius-lg);
+  width: clamp(230px, 22vw, 280px);
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-md);
   background: var(--bg-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
 .avatar-wrapper:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: var(--shadow-hover);
+  border-color: var(--border-hover);
 }
 
 .avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
-
-.avatar-caption {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-.active-badge {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--status-dot);
 }
 
 /* --------------------------------------------------------------------------
@@ -677,9 +688,9 @@ section {
    Featured Projects Section
    -------------------------------------------------------------------------- */
 .projects-container {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 .project-card {
@@ -689,6 +700,9 @@ section {
   padding: 24px;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-card:hover {
@@ -883,7 +897,7 @@ section {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
@@ -1363,6 +1377,18 @@ footer#site-footer {
 /* --------------------------------------------------------------------------
    Responsive Layout & Media Queries
    -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;
@@ -1373,27 +1399,27 @@ footer#site-footer {
   }
 
   .hero {
-    flex-direction: column-reverse;
+    grid-template-columns: 1fr;
     text-align: left;
-    gap: 28px;
-    padding: 36px 0 24px;
+    gap: 24px;
+    padding: 32px 0 20px;
   }
 
   .hero-right {
+    order: -1;
     width: 100%;
     display: flex;
     justify-content: flex-start;
   }
 
   .avatar-card {
-    flex-direction: row;
+    display: flex;
     align-items: center;
-    gap: 16px;
   }
 
   .avatar-wrapper {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     border-radius: var(--radius-md);
   }
 

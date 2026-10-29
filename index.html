@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ashok Mendonsa — Junior Software Developer & MCA scholar at Poornaprajna Institute of Management (PIM), Udupi.">
+  <meta name="description" content="Ashok Mendonsa — Aspiring Software Developer & MCA scholar at Poornaprajna Institute of Management (PIM), Udupi.">
   <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
-  <title>Ashok Mendonsa — Junior Software Developer</title>
+  <title>Ashok Mendonsa — Aspiring Software Developer | MCA Scholar</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/ashok-mendonsa.jpg" type="image/jpeg">
 
-  <!-- Immediate Theme Initializer to Prevent Flash of Wrong Theme -->
+  <!-- Immediate Theme Initializer: Detects System/Browser Theme Automatically -->
   <script>
     (function() {
       try {
-        var saved = localStorage.getItem('ashok-theme');
+        var saved = localStorage.getItem('ashok-theme-choice');
         var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var theme = saved || (prefersDark ? 'dark' : 'light');
+        var theme = (saved === 'dark' || saved === 'light') ? saved : (prefersDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
       } catch (e) {}
     })();
@@ -27,11 +27,17 @@
   <!-- Sticky Top Navigation -->
   <header id="site-header">
     <div class="container nav-wrap">
-      <a href="#" class="brand-link" aria-label="Ashok Mendonsa Home">
+      <a href="https://www.linkedin.com/in/ashokmendonsa" target="_blank" rel="noopener" class="brand-link" aria-label="Ashok Mendonsa on LinkedIn" title="Visit Ashok's LinkedIn Profile">
         <div class="monogram">AM</div>
         <div class="brand-meta">
-          <span class="brand-name">Ashok Mendonsa</span>
-          <span class="brand-role">Junior Developer</span>
+          <div class="brand-name-wrap">
+            <span class="brand-name">Ashok Mendonsa</span>
+            <svg class="brand-external-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+          <span class="brand-role">Aspiring Software Developer</span>
         </div>
       </a>
 
@@ -116,14 +122,14 @@
       <div class="hero-left">
         <div class="status-pill">
           <span class="status-dot"></span>
-          <span>Open to junior developer roles & internships</span>
+          <span>Actively seeking junior developer roles & internships</span>
         </div>
 
         <h1>Hi, I'm <span class="text-highlight">Ashok Mendonsa</span></h1>
-        <div class="role">Junior Software Developer · MCA Scholar, PIM Udupi</div>
+        <div class="role">Aspiring Software Developer · MCA Scholar, PIM Udupi</div>
 
         <p class="bio">
-          I am a postgraduate student pursuing my <strong>Master of Computer Applications (MCA)</strong> at Poornaprajna Institute of Management (PIM) in Udupi, Karnataka. I have strong foundations in Data Structures & Algorithms, Java, C++, and JavaScript, with hands-on experience building native Android applications and full-stack web platforms backed by modern database systems.
+          I am a postgraduate student pursuing my <strong>Master of Computer Applications (MCA)</strong> at Poornaprajna Institute of Management (PIM) in Udupi, Karnataka. As an <strong>aspiring software developer</strong> actively preparing for junior engineering roles, I have strong foundations in Data Structures & Algorithms, Java, C++, and JavaScript, with hands-on experience building native Android applications and full-stack web platforms backed by modern database systems.
         </p>
 
         <!-- Recruiter Snapshot Highlights Bar -->
@@ -146,6 +152,14 @@
 
           <div class="highlight-chip">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span>DSA · Java · C++ · Python · MySQL</span>
+          </div>
+
+          <div class="highlight-chip">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
@@ -160,7 +174,7 @@
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            <span>Download Resume</span>
+            <span>Download Resume (PDF)</span>
           </a>
 
           <a href="https://github.com/ashok123m" class="btn btn-outline" target="_blank" rel="noopener">
@@ -188,10 +202,6 @@
         <div class="avatar-card">
           <div class="avatar-wrapper">
             <img src="images/ashok-mendonsa.jpg" alt="Ashok Mendonsa portrait" class="avatar-img" loading="eager">
-          </div>
-          <div class="avatar-caption">
-            <span class="active-badge"></span>
-            <span>Ashok Mendonsa · Udupi</span>
           </div>
         </div>
       </div>
@@ -605,7 +615,7 @@
           <span>Direct Connection</span>
         </div>
         <h2>Get in Touch</h2>
-        <p>Get in touch for junior software engineering roles, internships, or collaboration.</p>
+        <p>Get in touch for junior software engineering opportunities, internships, or collaboration.</p>
       </div>
 
       <div class="contact-box">
@@ -647,6 +657,34 @@
                 +91 9353990461
               </a>
               <button class="copy-pill copy-trigger" data-copy="+919353990461" aria-label="Copy phone number">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- LinkedIn Row -->
+          <div class="contact-row">
+            <div class="contact-label">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <span>LinkedIn</span>
+            </div>
+            <div class="contact-value">
+              <a href="https://www.linkedin.com/in/ashokmendonsa" target="_blank" rel="noopener" class="contact-link external">
+                <span>linkedin.com/in/ashokmendonsa</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+              <button class="copy-pill copy-trigger" data-copy="https://www.linkedin.com/in/ashokmendonsa" aria-label="Copy LinkedIn URL">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>

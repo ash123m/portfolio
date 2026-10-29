@@ -13,18 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------------------
-  // 2. Minimal Dark Mode Theme Engine
+  // 2. Minimal Dark Mode Engine: Auto-Detects System/Browser Theme
   // -------------------------------------------------------------------------
   const themeBtn = document.getElementById('theme-btn');
-  const metaThemeColorDark = document.querySelector('meta[name="theme-color"][media*="dark"]');
-  const metaThemeColorLight = document.querySelector('meta[name="theme-color"][media*="light"]');
+  const storageKey = 'ashok-theme-choice';
 
-  function getPreferredTheme() {
-    const saved = localStorage.getItem('ashok-theme');
-    if (saved) return saved;
+  function getSystemTheme() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light';
+  }
+
+  function getPreferredTheme() {
+    const saved = localStorage.getItem(storageKey);
+    // If the user has explicitly selected a preference ('dark' or 'light'), honor it.
+    // Otherwise, automatically detect and follow the system/browser mode!
+    if (saved === 'dark' || saved === 'light') {
+      return saved;
+    }
+    return getSystemTheme();
   }
 
   function applyTheme(theme) {
@@ -36,24 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Initialize theme
+  // Initialize theme on page load
   const initialTheme = getPreferredTheme();
   applyTheme(initialTheme);
 
   // Toggle button click listener
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const current = document.documentElement.getAttribute('data-theme') || getSystemTheme();
       const nextTheme = current === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme);
-      localStorage.setItem('ashok-theme', nextTheme);
+      localStorage.setItem(storageKey, nextTheme);
     });
   }
 
-  // Listen for OS theme change only if user has not explicitly chosen
+  // Dynamically listen for OS / browser theme changes in real time:
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('ashok-theme')) {
+      // Automatically adapt if user hasn't explicitly chosen a sticky override
+      if (!localStorage.getItem(storageKey)) {
         applyTheme(e.matches ? 'dark' : 'light');
       }
     });
