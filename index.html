@@ -1,69 +1,85 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ashok Mendonsa — Aspiring Software Developer & MCA scholar at Poornaprajna Institute of Management (PIM), Udupi.">
-  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
-  <title>Ashok Mendonsa — Aspiring Software Developer | MCA Scholar</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="images/ashok-mendonsa.jpg" type="image/jpeg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ashok Mendonsa — Full-Stack Software Engineer</title>
 
-  <!-- Immediate Theme Initializer: Detects System/Browser Theme Automatically -->
-  <script>
-    (function() {
-      try {
-        var saved = localStorage.getItem('ashok-theme-choice');
-        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var theme = (saved === 'dark' || saved === 'light') ? saved : (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {}
-    })();
-  </script>
+  <meta name="description" content="Portfolio of Ashok Mendonsa, Full-Stack Software Engineer and Master of Computer Applications (MCA '27) scholar at Poornaprajna Institute of Management (PIM), Udupi. Experienced in JavaScript, Node.js, PHP, Python, MySQL/PostgreSQL, and Android.">
+  <meta name="keywords" content="Ashok Mendonsa, Full-Stack Developer, Software Engineer, Web Developer, Backend Developer, Java, Spring Boot, JavaScript, Node.js, Python, PHP, SQL, MySQL, PostgreSQL, Docker, GitLab, MCA, Udupi">
+  <meta name="author" content="Ashok Mendonsa">
+  <meta name="robots" content="index, follow, noai, noimageai, noarchive, nosnippet">
+  <meta name="tdm-reservation" content="1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ashok Mendonsa — Full-Stack Software Engineer">
+  <meta property="og:description" content="Full-Stack Software Engineer building scalable web applications, RESTful APIs, normalized relational databases, and mobile products.">
+  <meta property="og:image" content="images/mypic.jpg">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="images/ashok-square.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Sticky Top Navigation -->
-  <header id="site-header">
-    <div class="container nav-wrap">
-      <a href="https://www.linkedin.com/in/ashokmendonsa" target="_blank" rel="noopener" class="brand-link" aria-label="Ashok Mendonsa on LinkedIn" title="Visit Ashok's LinkedIn Profile">
-        <div class="monogram">AM</div>
-        <div class="brand-meta">
-          <div class="brand-name-wrap">
-            <span class="brand-name">Ashok Mendonsa</span>
-            <svg class="brand-external-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </div>
-          <span class="brand-role">Aspiring Software Developer</span>
-        </div>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div id="scroll-progress-bar" class="scroll-progress-fill"></div>
+  </div>
+
+  <!-- Subtle Flat Grid Backdrop -->
+  <div class="page-bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Skip Navigation Link for Keyboard & Screen Reader Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Bot & Scraper Honeypot Decoys (Invisible to humans, traps automated harvesters) -->
+  <div class="honeypot-field" aria-hidden="true">
+    <label for="bot-catcher-input">Leave this field empty</label>
+    <input type="text" id="bot-catcher-input" name="website_verify_token" tabindex="-1" autocomplete="off">
+    <a href="mailto:honeypot-trap@invalid.example" rel="nofollow" tabindex="-1">Support</a>
+  </div>
+
+  <!-- Clean, User-Friendly Top Navigation -->
+  <header id="site-header" class="site-header">
+    <div class="header-shell">
+      <a href="#overview" class="brand-lockup" aria-label="Ashok Mendonsa Home">
+        <img src="images/ashok-square.jpg" alt="Ashok Mendonsa" class="brand-avatar" width="38" height="38">
+        <span class="brand-copy">
+          <span class="brand-name">Ashok Mendonsa</span>
+          <span class="brand-sub">Full-Stack Developer</span>
+        </span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="desktop-nav" aria-label="Primary Navigation">
+      <nav class="primary-nav" aria-label="Primary Navigation">
+        <a href="#overview" class="nav-link active">Overview</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#education" class="nav-link">Education</a>
-        <a href="#interests" class="nav-link">About</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <a href="Ashok_Mendonsa_Resume.pdf" class="nav-resume-btn" target="_blank" download="Ashok_Mendonsa_Resume.pdf">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      </nav>
+
+      <div class="header-controls">
+        <a href="Ashok_Mendonsa_Resume.pdf" download="Ashok_Mendonsa_Resume.pdf" class="btn-header-resume" title="Download 1-Page ATS Resume (PDF)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span>Resume</span>
+          <span>Resume (PDF)</span>
         </a>
-      </nav>
 
-      <!-- Header Actions (Minimal Dark Mode & Mobile Menu) -->
-      <div class="header-actions">
-        <!-- Minimal Theme Switcher Button -->
-        <button id="theme-btn" class="theme-toggle-btn" aria-label="Toggle light and dark mode" title="Switch color theme">
-          <!-- Sun Icon (shown in dark mode) -->
-          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch between dark and light theme" title="Switch Theme (T)">
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -74,20 +90,18 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <!-- Moon Icon (shown in light mode) -->
-          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="menu-toggle-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg class="menu-open-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <button id="mobile-menu-toggle" class="icon-btn mobile-only" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="icon-menu" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-          <svg class="menu-close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
@@ -96,671 +110,606 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="mobile-nav-drawer" aria-hidden="true">
-      <div class="mobile-nav-links">
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#skills" class="mobile-link">Skills</a>
-        <a href="#education" class="mobile-link">Education</a>
-        <a href="#interests" class="mobile-link">About</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-        <a href="Ashok_Mendonsa_Resume.pdf" class="mobile-resume-btn" target="_blank" download="Ashok_Mendonsa_Resume.pdf">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span>Download Resume (PDF)</span>
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-content">
+        <a href="#overview" class="mobile-nav-item">Overview</a>
+        <a href="#projects" class="mobile-nav-item">Projects</a>
+        <a href="#skills" class="mobile-nav-item">Skills</a>
+        <a href="#education" class="mobile-nav-item">Education &amp; Background</a>
+        <a href="#contact" class="mobile-nav-item">Contact</a>
+        <a href="Ashok_Mendonsa_Resume.pdf" download="Ashok_Mendonsa_Resume.pdf" class="btn btn-primary full-width">
+          Download Resume (PDF)
         </a>
       </div>
     </div>
   </header>
 
-  <main class="container">
+  <main id="main-content">
 
-    <!-- Hero Section -->
-    <section class="hero" id="about">
-      <div class="hero-left">
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          <span>Actively seeking junior developer roles & internships</span>
-        </div>
+    <!-- HERO SECTION: Built for 6-Second Recruiter & Interviewer Clarity -->
+    <section id="overview" class="hero-section">
+      <div class="container hero-layout">
 
-        <h1>Hi, I'm <span class="text-highlight">Ashok Mendonsa</span></h1>
-        <div class="role">Aspiring Software Developer · MCA Scholar, PIM Udupi</div>
-
-        <p class="bio">
-          I am a postgraduate student pursuing my <strong>Master of Computer Applications (MCA)</strong> at Poornaprajna Institute of Management (PIM) in Udupi, Karnataka. As an <strong>aspiring software developer</strong> actively preparing for junior engineering roles, I have strong foundations in Data Structures & Algorithms, Java, C++, and JavaScript, with hands-on experience building native Android applications and full-stack web platforms backed by modern database systems.
-        </p>
-
-        <!-- Recruiter Snapshot Highlights Bar -->
-        <div class="quick-highlights">
-          <div class="highlight-chip">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-            </svg>
-            <span>MCA Candidate (2025–2027)</span>
-          </div>
-
-          <div class="highlight-chip">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-            <span>Native Android & Full-Stack</span>
-          </div>
-
-          <div class="highlight-chip">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
-            <span>DSA · Java · C++ · Python · MySQL</span>
-          </div>
-
-          <div class="highlight-chip">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span>Udupi, Karnataka (Open to Remote / Relocate)</span>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <a href="Ashok_Mendonsa_Resume.pdf" class="btn btn-primary" target="_blank" download="Ashok_Mendonsa_Resume.pdf">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>Download Resume (PDF)</span>
-          </a>
-
-          <a href="https://github.com/ashok123m" class="btn btn-outline" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
-            <span>GitHub Profile</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon" aria-hidden="true">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-
-          <a href="#contact" class="btn btn-ghost">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span>Get in touch</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="avatar-card">
-          <div class="avatar-wrapper">
-            <img src="images/mypic.jpg" alt="Ashok Mendonsa portrait" class="avatar-img" loading="eager">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-      <div class="section-head">
-        <div class="section-tag">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-          <span>Portfolio Work</span>
-        </div>
-        <h2>Featured Projects</h2>
-        <p>Software applications built during collaborative team sprints and independent engineering work.</p>
-      </div>
-
-      <div class="projects-container">
-
-        <!-- Project 1: Mobile Grocery Delivery Application -->
-        <article class="project-card">
-          <div class="project-header">
-            <div class="project-title-group">
-              <h3 class="project-title">
-                Mobile Grocery Delivery Application
-              </h3>
-              <p class="project-summary">An intuitive Android application engineered for on-demand grocery ordering, categorized product browsing, and real-time inventory synchronization.</p>
-            </div>
-            <div class="project-meta-pills">
-              <span class="project-meta-pill team">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-                <span>Team Project</span>
-              </span>
-              <span class="project-meta-pill date">08/2026 – 09/2026</span>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-section-label">Engineering Highlights:</div>
-            <ul class="project-bullets">
-              <li>
-                <svg class="bullet-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <div><strong>Client-Side Architecture:</strong> Collaborated with a cross-functional team to design and develop an intuitive Android UI with instant product search, category navigation, and real-time cart state management.</div>
-              </li>
-              <li>
-                <svg class="bullet-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <div><strong>Data & Checkout Flow:</strong> Integrated database endpoints to handle live stock validation, inventory synchronization, and secure checkout transaction workflows.</div>
-              </li>
-              <li>
-                <svg class="bullet-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <div><strong>Team Workflow & Git:</strong> Utilized Git for version control, managing pull requests, performing code reviews, and resolving merge conflicts across collaborative sprints.</div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="project-footer">
-            <div class="tags-wrap" aria-label="Technologies used">
-              <span class="tag-pill">Android</span>
-              <span class="tag-pill">Java</span>
-              <span class="tag-pill">Kotlin</span>
-              <span class="tag-pill">Database Management</span>
-              <span class="tag-pill">Git</span>
-            </div>
-            <a href="https://github.com/ashok123m" target="_blank" rel="noopener" class="project-link-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-              <span>View on GitHub</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 2: Bespoke Furniture E-Commerce Web Application -->
-        <article class="project-card">
-          <div class="project-header">
-            <div class="project-title-group">
-              <h3 class="project-title">
-                Bespoke Furniture E-Commerce Web Application
-              </h3>
-              <p class="project-summary">A full-stack furniture e-commerce platform built from scratch featuring dynamic product listings, user session authentication, and automated catalog processing.</p>
-            </div>
-            <div class="project-meta-pills">
-              <span class="project-meta-pill solo">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <span>Solo Project</span>
-              </span>
-              <span class="project-meta-pill date">01/2026 – 02/2026</span>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="project-section-label">Engineering Highlights:</div>
-            <ul class="project-bullets">
-              <li>
-                <svg class="bullet-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <div><strong>Full-Stack Architecture:</strong> Engineered a complete full-stack web application from the ground up as a solo developer, featuring responsive UI and dynamic product listings.</div>
-              </li>
-              <li>
-                <svg class="bullet-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <div><strong>Backend Logic & Security:</strong> Built backend server routines with PHP to manage user session authentication, secure shopping cart state, and order transaction flows.</div>
-              </li>
-              <li>
-                <svg class="bullet-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <div><strong>Automation & Data Pipeline:</strong> Integrated Python automation scripts for scheduled backend data parsing and database maintenance to streamline product catalog management.</div>
-              </li>
-              <li>
-                <svg class="bullet-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <div><strong>Interactive Frontend:</strong> Designed an interactive interface with vanilla JavaScript (ES6+), HTML5, and CSS3 to deliver a smooth and responsive shopping experience across screen sizes.</div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="project-footer">
-            <div class="tags-wrap" aria-label="Technologies used">
-              <span class="tag-pill">PHP</span>
-              <span class="tag-pill">JavaScript (ES6+)</span>
-              <span class="tag-pill">Python</span>
-              <span class="tag-pill">MySQL</span>
-              <span class="tag-pill">HTML5 & CSS3</span>
-            </div>
-            <a href="https://github.com/ashok123m" target="_blank" rel="noopener" class="project-link-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-              <span>View on GitHub</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-      <div class="section-head">
-        <div class="section-tag">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-          </svg>
-          <span>Core Capabilities</span>
-        </div>
-        <h2>Skills & Technical Proficiency</h2>
-        <p>Core programming languages, web technologies, database architectures, and engineering principles.</p>
-      </div>
-
-      <!-- Skills Interactive Filter Tabs -->
-      <div class="skills-filter-bar" role="tablist" aria-label="Skills filter">
-        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Skills</button>
-        <button class="filter-tab" data-filter="languages" role="tab" aria-selected="false">Languages</button>
-        <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">Web Dev</button>
-        <button class="filter-tab" data-filter="databases" role="tab" aria-selected="false">Databases</button>
-        <button class="filter-tab" data-filter="core" role="tab" aria-selected="false">Core & Tools</button>
-      </div>
-
-      <div class="skills-grid">
-        <!-- 1. Languages -->
-        <div class="skill-card" data-category="languages">
-          <div class="skill-card-top">
-            <div class="skill-icon-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
-            </div>
-            <h3>Programming Languages</h3>
-          </div>
-          <div class="skill-pill-list">
-            <span class="skill-item">Java</span>
-            <span class="skill-item">Python</span>
-            <span class="skill-item">C++</span>
-            <span class="skill-item">JavaScript (ES6+)</span>
-            <span class="skill-item">Kotlin</span>
-            <span class="skill-item">PHP</span>
-          </div>
-        </div>
-
-        <!-- 2. Web Development -->
-        <div class="skill-card" data-category="web">
-          <div class="skill-card-top">
-            <div class="skill-icon-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <h3>Web Development</h3>
-          </div>
-          <div class="skill-pill-list">
-            <span class="skill-item">HTML5</span>
-            <span class="skill-item">CSS3</span>
-            <span class="skill-item">JavaScript (ES6+)</span>
-            <span class="skill-item">Node.js</span>
-            <span class="skill-item">Express.js</span>
-            <span class="skill-item">RESTful APIs</span>
-            <span class="skill-item">AJAX</span>
-          </div>
-        </div>
-
-        <!-- 3. Databases -->
-        <div class="skill-card" data-category="databases">
-          <div class="skill-card-top">
-            <div class="skill-icon-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-              </svg>
-            </div>
-            <h3>Databases & Storage</h3>
-          </div>
-          <div class="skill-pill-list">
-            <span class="skill-item">MySQL</span>
-            <span class="skill-item">PostgreSQL</span>
-            <span class="skill-item">MongoDB</span>
-            <span class="skill-item">Schema Design</span>
-            <span class="skill-item">Normalization (3NF)</span>
-          </div>
-        </div>
-
-        <!-- 4. Core Concepts & Tools -->
-        <div class="skill-card" data-category="core">
-          <div class="skill-card-top">
-            <div class="skill-icon-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="4 17 10 11 4 5"></polyline>
-                <line x1="12" y1="19" x2="20" y2="19"></line>
-              </svg>
-            </div>
-            <h3>Core Concepts & Tools</h3>
-          </div>
-          <div class="skill-pill-list">
-            <span class="skill-item">Data Structures & Algorithms</span>
-            <span class="skill-item">Object-Oriented Design (OOP)</span>
-            <span class="skill-item">Git & GitHub</span>
-            <span class="skill-item">Linux / CLI</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-      <div class="section-head">
-        <div class="section-tag">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-          </svg>
-          <span>Academic Background</span>
-        </div>
-        <h2>Education</h2>
-        <p>Academic qualifications and institutional postgraduate training.</p>
-      </div>
-
-      <div class="timeline-container">
-        <div class="timeline-item">
-          <div class="timeline-node"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-title">Master of Computer Applications (MCA)</h3>
-                <div class="timeline-institution">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span>Poornaprajna Institute of Management (PIM) · Udupi, Karnataka</span>
-                </div>
-              </div>
-              <span class="timeline-date-pill">10/2025 – 10/2027 (Expected)</span>
-            </div>
-            <p class="timeline-desc">
-              Rigorous postgraduate curriculum covering Advanced Data Structures & Algorithms, Object-Oriented Software Engineering, Relational Database Management Systems, Computer Networks, and Full-Stack Web Development.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Languages & Interests Section -->
-    <section id="interests">
-      <div class="section-head">
-        <div class="section-tag">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-          <span>Personal Perspective</span>
-        </div>
-        <h2>Languages & Personal Interests</h2>
-        <p>Communication proficiencies and creative pursuits outside code.</p>
-      </div>
-
-      <div class="split-grid">
-        <!-- Languages Card -->
-        <div class="info-card">
-          <div class="info-card-top">
-            <div class="skill-icon-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </div>
-            <h3>Languages</h3>
-          </div>
-          <div class="language-rows">
-            <div class="lang-row">
-              <span class="lang-name">English</span>
-              <span class="lang-level-pill">Fluent / Full Professional</span>
-            </div>
-            <div class="lang-row">
-              <span class="lang-name">Kannada</span>
-              <span class="lang-level-pill">Native / Full Professional</span>
-            </div>
-            <div class="lang-row">
-              <span class="lang-name">Konkani</span>
-              <span class="lang-level-pill">Native / Bilingual</span>
-            </div>
-            <div class="lang-row">
-              <span class="lang-name">Tulu</span>
-              <span class="lang-level-pill">Native / Bilingual</span>
-            </div>
-            <div class="lang-row">
-              <span class="lang-name">Japanese</span>
-              <span class="lang-level-pill beginner">Elementary (N5 Beginner)</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interests Card -->
-        <div class="info-card">
-          <div class="info-card-top">
-            <div class="skill-icon-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-              </svg>
-            </div>
-            <h3>Interests Beyond Code</h3>
-          </div>
-          <div class="interests-content">
-            <div class="interest-block">
-              <div class="interest-heading">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                  <circle cx="12" cy="13" r="4"></circle>
-                </svg>
-                <span>Creative & Digital Design</span>
-              </div>
-              <p>Hands-on engagement in Photography, Image & Video Editing, Graphic Design, and 3D Modeling workflows.</p>
-            </div>
-
-            <div class="interest-block">
-              <div class="interest-heading">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path>
-                  <path d="M12 7v5l3 3"></path>
-                </svg>
-                <span>Tech & Community</span>
-              </div>
-              <p>Active exploration of GitHub open-source repositories, local tech community meetups, and contributions as a Google Local Guide in coastal Karnataka.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="section-head">
-        <div class="section-tag">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <span>Direct Connection</span>
-        </div>
-        <h2>Get in Touch</h2>
-        <p>Get in touch for junior software engineering opportunities, internships, or collaboration.</p>
-      </div>
-
-      <div class="contact-box">
-        <div class="contact-list">
-
-          <!-- Email Row -->
-          <div class="contact-row">
-            <div class="contact-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span>Email</span>
-            </div>
-            <div class="contact-value">
-              <a href="mailto:ashokmendonsa.mca.2025@pim.ac.in" class="contact-link">
-                ashokmendonsa.mca.2025@pim.ac.in
-              </a>
-              <button class="copy-pill copy-trigger" data-copy="ashokmendonsa.mca.2025@pim.ac.in" aria-label="Copy email address">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                <span>Copy</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Phone Row -->
-          <div class="contact-row">
-            <div class="contact-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <span>Phone</span>
-            </div>
-            <div class="contact-value">
-              <a href="tel: " class="contact-link">
-                +91  461
-              </a>
-              <button class="copy-pill copy-trigger" data-copy=" " aria-label="Copy phone number">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                <span>Copy</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- LinkedIn Row -->
-          <div class="contact-row">
-            <div class="contact-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-              <span>LinkedIn</span>
-            </div>
-            <div class="contact-value">
-              <a href="https://www.linkedin.com/in/ashokmendonsa" target="_blank" rel="noopener" class="contact-link external">
-                <span>linkedin.com/in/ashokmendonsa</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </a>
-              <button class="copy-pill copy-trigger" data-copy="https://www.linkedin.com/in/ashokmendonsa" aria-label="Copy LinkedIn URL">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                <span>Copy</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- GitHub Row -->
-          <div class="contact-row">
-            <div class="contact-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-              <span>GitHub</span>
-            </div>
-            <div class="contact-value">
-              <a href="https://github.com/ashok123m" target="_blank" rel="noopener" class="contact-link external">
-                <span>github.com/ashok123m</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Location Row -->
-          <div class="contact-row">
-            <div class="contact-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- Left: Clear Role Positioning, Bio, Quick Recruiter Facts & Actions -->
+        <div class="hero-copy-col">
+          <div class="availability-row">
+            <span class="availability-pill">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Open to Full-Stack Developer &amp; SWE Roles
+            </span>
+            <span class="location-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              <span>Location</span>
+              Udupi, Karnataka · Remote / Hybrid / Onsite
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Full-Stack Software Engineer building <span class="text-accent">reliable web applications</span>, APIs, and data systems.
+          </h1>
+
+          <p class="hero-lead">
+            I am <strong>Ashok Mendonsa</strong>, a Master of Computer Applications (<strong>MCA '27</strong>) scholar at
+            <strong>Poornaprajna Institute of Management (PIM), Udupi</strong>. I design and build end-to-end software—combining responsive frontends, secure backend services, normalized relational databases, Python data pipelines, and native mobile applications.
+          </p>
+
+          <!-- Primary HR / Interviewer Actions -->
+          <div class="hero-cta-bar">
+            <a href="Ashok_Mendonsa_Resume.pdf" download="Ashok_Mendonsa_Resume.pdf" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume (PDF)</span>
+            </a>
+
+            <a href="#projects" class="btn btn-secondary">
+              <span>Explore Projects</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <button id="hero-copy-email" type="button" class="btn btn-outline" title="Decrypt and copy email address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+
+          <!-- Recruiter Quick-Scan Summary Card -->
+          <div class="recruiter-summary-card spotlight-card">
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span class="summary-label">Primary Focus</span>
+                <span class="summary-val">Full-Stack Web &amp; Backend APIs</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Backend &amp; APIs</span>
+                <span class="summary-val">Spring Boot, Node.js, PHP, Python</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Frontend</span>
+                <span class="summary-val">JavaScript (ES6+), HTML5, CSS3</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Databases</span>
+                <span class="summary-val">MySQL (3NF), PostgreSQL, MongoDB</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">DevOps &amp; Tools</span>
+                <span class="summary-val">Docker, GitLab, GitHub, Linux</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Certifications</span>
+                <span class="summary-val">NPTEL GenAI (91%), Cloud, Tally</span>
+              </div>
             </div>
-            <div class="contact-value text-regular">
-              Udupi, Karnataka, India <span class="tag-pill-subtle">Open to On-site, Hybrid & Remote</span>
+          </div>
+        </div>
+
+        <!-- Right: Clean Executive Profile Card -->
+        <div class="hero-card-col">
+          <aside class="profile-card spotlight-card" aria-label="Candidate Summary">
+            <div class="portrait-frame">
+              <img src="images/mypic.jpg" alt="Ashok Mendonsa — Full-Stack Software Engineer" class="portrait-img" width="460" height="580" loading="eager">
+            </div>
+
+            <div class="profile-identity">
+              <h2>Ashok Mendonsa</h2>
+              <p class="profile-role">Full-Stack Software Engineer · MCA '27</p>
+              <p class="profile-school">Poornaprajna Institute of Management, Udupi</p>
+            </div>
+
+            <div class="profile-highlights">
+              <div class="highlight-row">
+                <span class="hl-tag web">Target Role</span>
+                <span class="hl-text">Full-Stack Developer / Backend / SDE</span>
+              </div>
+              <div class="highlight-row">
+                <span class="hl-tag data">Education</span>
+                <span class="hl-text">MCA (2025–2027) · PIM Udupi</span>
+              </div>
+              <div class="highlight-row">
+                <span class="hl-tag mobile">Languages</span>
+                <span class="hl-text">English, Kannada, Konkani, Tulu, JLPT N5</span>
+              </div>
+            </div>
+
+            <div class="profile-links">
+              <a href="https://github.com/ashok123m" target="_blank" rel="noopener noreferrer" class="profile-link-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/ashok-m-468476233/" target="_blank" rel="noopener noreferrer" class="profile-link-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#contact" class="profile-link-btn primary">
+                <span>Contact Me</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS (Full-Stack First) -->
+    <section id="projects" class="section-block reveal-on-scroll">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">Selected Work</span>
+            <h2 class="section-title">Featured Software Projects</h2>
+            <p class="section-subtitle">Click <strong>View Architecture</strong> on any project for a quick interview walkthrough of its system design, security practices, and engineering decisions.</p>
+          </div>
+          <div class="filter-group" role="tablist" aria-label="Filter projects by domain">
+            <button type="button" class="filter-btn active" data-filter="all">All Projects (3)</button>
+            <button type="button" class="filter-btn" data-filter="web">Full-Stack Web</button>
+            <button type="button" class="filter-btn" data-filter="ml">Data &amp; ML</button>
+            <button type="button" class="filter-btn" data-filter="mobile">Mobile App</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: Bespoke Furniture Full-Stack E-Commerce (Lead Full-Stack Project) -->
+          <article class="project-card spotlight-card" data-category="web">
+            <div class="project-top">
+              <span class="scope-badge web">Solo Full-Stack Project</span>
+              <span class="date-tag">Jan 2026 – Feb 2026</span>
+            </div>
+
+            <h3 class="project-title">Bespoke Furniture E-Commerce Web Platform</h3>
+            <p class="project-desc">
+              End-to-end custom furniture commerce web application built from scratch with dynamic catalog browsing, authenticated customer sessions, and automated Python data maintenance.
+            </p>
+
+            <ul class="project-specs">
+              <li><strong>Backend &amp; Security:</strong> Modular PHP controllers with parameterized PDO queries, input sanitization, and session auth to prevent SQL injection.</li>
+              <li><strong>Relational Database:</strong> 3NF normalized MySQL schema with foreign-key constraints ensuring transactional integrity and zero duplication.</li>
+              <li><strong>Data Automation:</strong> Python batch scripts for automated catalog ingestion, schema verification, and inventory sync.</li>
+              <li><strong>Responsive UI:</strong> Clean CSS3 Grid layout and modular ES6+ JavaScript shopping cart workflows.</li>
+            </ul>
+
+            <div class="tech-tag-row">
+              <span>PHP</span>
+              <span>JavaScript (ES6+)</span>
+              <span>Python</span>
+              <span>MySQL (3NF)</span>
+              <span>CSS3 Grid</span>
+              <span>REST APIs</span>
+            </div>
+
+            <div class="project-actions">
+              <button type="button" class="btn-blueprint" data-project="furniture">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>View Architecture</span>
+              </button>
+              <a href="https://github.com/ashok123m" target="_blank" rel="noopener noreferrer" class="btn-repo-link">
+                Source on GitHub ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: EduPulse AI -->
+          <article class="project-card spotlight-card" data-category="ml">
+            <div class="project-top">
+              <span class="scope-badge ml">Research &amp; Data Platform</span>
+              <span class="date-tag">Nov 2026</span>
+            </div>
+
+            <h3 class="project-title">EduPulse AI — Academic Risk &amp; Pattern Detection</h3>
+            <p class="project-desc">
+              A Python-driven decision-support platform analyzing longitudinal attendance, quiz, and assessment metrics to forecast at-risk students early and guide academic interventions.
+            </p>
+
+            <ul class="project-specs">
+              <li><strong>Predictive Modeling:</strong> Supervised classification pipelines using Scikit-Learn trained on historical coursework performance.</li>
+              <li><strong>Data Pipeline:</strong> Automated Pandas and NumPy preprocessing for feature normalization, imputation, and outlier detection.</li>
+              <li><strong>Model Evaluation:</strong> K-Fold cross-validation, confusion matrix analysis, and precision-recall tuning.</li>
+              <li><strong>Faculty Insights:</strong> Risk-tier stratification and rule-based alert thresholds for timely student support.</li>
+            </ul>
+
+            <div class="tech-tag-row">
+              <span>Python</span>
+              <span>Scikit-Learn</span>
+              <span>Pandas / NumPy</span>
+              <span>Data Mining</span>
+              <span>Predictive Analytics</span>
+            </div>
+
+            <div class="project-actions">
+              <button type="button" class="btn-blueprint" data-project="edupulse">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>View Architecture</span>
+              </button>
+              <a href="https://github.com/ashok123m" target="_blank" rel="noopener noreferrer" class="btn-repo-link">
+                Source on GitHub ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3: Mobile Grocery Delivery Application -->
+          <article class="project-card spotlight-card" data-category="mobile">
+            <div class="project-top">
+              <span class="scope-badge mobile">Team Project · Android Lead</span>
+              <span class="date-tag">Aug 2026 – Sep 2026</span>
+            </div>
+
+            <h3 class="project-title">Mobile Grocery Delivery Application</h3>
+            <p class="project-desc">
+              Collaborative native Android grocery commerce app built for instant catalog filtering, offline-resilient cart persistence, and synchronized stock checkout workflows.
+            </p>
+
+            <ul class="project-specs">
+              <li><strong>Architecture:</strong> MVVM pattern with lifecycle-aware ViewModels and LiveData reactive UI state.</li>
+              <li><strong>Local Persistence:</strong> Indexed SQLite / Room storage for fast offline cart recovery and REST endpoint synchronization.</li>
+              <li><strong>Performance:</strong> Background thread execution keeping catalog scrolling and cart updates responsive.</li>
+              <li><strong>Team Collaboration:</strong> Agile Git branching, structured pull request reviews, and merge conflict resolution.</li>
+            </ul>
+
+            <div class="tech-tag-row">
+              <span>Java / Kotlin</span>
+              <span>Android SDK</span>
+              <span>SQLite / Room</span>
+              <span>REST APIs</span>
+              <span>Git Flow</span>
+            </div>
+
+            <div class="project-actions">
+              <button type="button" class="btn-blueprint" data-project="grocery">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>View Architecture</span>
+              </button>
+              <a href="https://github.com/ashok123m" target="_blank" rel="noopener noreferrer" class="btn-repo-link">
+                Source on GitHub ↗
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS MATRIX (Full-Stack First) -->
+    <section id="skills" class="section-block reveal-on-scroll">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">Technical Competencies</span>
+            <h2 class="section-title">Skills &amp; Technology Stack</h2>
+            <p class="section-subtitle">Full-stack web development capabilities backed by relational database design, scripting automation, and computer science fundamentals.</p>
+          </div>
+          <div class="filter-group" role="tablist" aria-label="Filter skills by category">
+            <button type="button" class="skill-filter-btn active" data-skill-cat="all">All Areas</button>
+            <button type="button" class="skill-filter-btn" data-skill-cat="frontend">Frontend</button>
+            <button type="button" class="skill-filter-btn" data-skill-cat="backend">Backend &amp; APIs</button>
+            <button type="button" class="skill-filter-btn" data-skill-cat="databases">Databases</button>
+            <button type="button" class="skill-filter-btn" data-skill-cat="core">Languages &amp; Core</button>
+          </div>
+        </div>
+
+        <div class="skills-bento">
+
+          <div class="skill-domain spotlight-card" data-skill-domain="frontend">
+            <div class="domain-head">
+              <span class="domain-badge cyan" aria-hidden="true">FE</span>
+              <div>
+                <h3>Frontend &amp; Web UI</h3>
+                <p>Responsive, accessible client interfaces</p>
+              </div>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row"><span class="sk-name">JavaScript (ES6+)</span><span class="sk-note">DOM, Async &amp; State</span></div>
+              <div class="skill-row"><span class="sk-name">HTML5 &amp; CSS3</span><span class="sk-note">Semantic, Grid &amp; Flex</span></div>
+              <div class="skill-row"><span class="sk-name">AJAX &amp; Fetch</span><span class="sk-note">Dynamic Catalogs</span></div>
+              <div class="skill-row"><span class="sk-name">Responsive Design</span><span class="sk-note">Mobile-First &amp; A11y</span></div>
             </div>
           </div>
 
-          <!-- Resume Row -->
-          <div class="contact-row">
-            <div class="contact-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-              <span>Resume</span>
+          <div class="skill-domain spotlight-card" data-skill-domain="backend">
+            <div class="domain-head">
+              <span class="domain-badge emerald" aria-hidden="true">BE</span>
+              <div>
+                <h3>Backend &amp; Server Systems</h3>
+                <p>APIs, authentication &amp; automation</p>
+              </div>
             </div>
-            <div class="contact-value">
-              <a href="Ashok_Mendonsa_Resume.pdf" class="contact-link resume-action" target="_blank" download="Ashok_Mendonsa_Resume.pdf">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span>Download Verified FlowCV Resume (PDF)</span>
-              </a>
+            <div class="skill-list">
+              <div class="skill-row"><span class="sk-name">Spring Boot (Java)</span><span class="sk-note">REST APIs &amp; Backend</span></div>
+              <div class="skill-row"><span class="sk-name">Node.js / Express</span><span class="sk-note">Server Runtimes &amp; JSON</span></div>
+              <div class="skill-row"><span class="sk-name">PHP &amp; PDO</span><span class="sk-note">Sessions &amp; Auth</span></div>
+              <div class="skill-row"><span class="sk-name">Python Scripting</span><span class="sk-note">ETL &amp; ML Pipelines</span></div>
+            </div>
+          </div>
+
+          <div class="skill-domain spotlight-card" data-skill-domain="databases">
+            <div class="domain-head">
+              <span class="domain-badge amber" aria-hidden="true">DB</span>
+              <div>
+                <h3>Databases &amp; Data Modeling</h3>
+                <p>Normalized schemas &amp; persistence</p>
+              </div>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row"><span class="sk-name">MySQL</span><span class="sk-note">3NF &amp; ACID Compliance</span></div>
+              <div class="skill-row"><span class="sk-name">PostgreSQL</span><span class="sk-note">Relational Modeling</span></div>
+              <div class="skill-row"><span class="sk-name">MongoDB</span><span class="sk-note">Document Storage</span></div>
+              <div class="skill-row"><span class="sk-name">SQLite / Room</span><span class="sk-note">Embedded Local Cache</span></div>
+            </div>
+          </div>
+
+          <div class="skill-domain spotlight-card" data-skill-domain="core">
+            <div class="domain-head">
+              <span class="domain-badge indigo" aria-hidden="true">CS</span>
+              <div>
+                <h3>Languages, Mobile &amp; Tooling</h3>
+                <p>CS foundations &amp; engineering workflow</p>
+              </div>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row"><span class="sk-name">Java, C++ &amp; Kotlin</span><span class="sk-note">OOP, DSA &amp; Android</span></div>
+              <div class="skill-row"><span class="sk-name">Data Structures &amp; Algorithms</span><span class="sk-note">Complexity &amp; Logic</span></div>
+              <div class="skill-row"><span class="sk-name">Git, GitHub &amp; GitLab</span><span class="sk-note">Version Control, CI/CD &amp; PRs</span></div>
+              <div class="skill-row"><span class="sk-name">Docker &amp; Linux</span><span class="sk-note">Containers, CLI &amp; Security</span></div>
             </div>
           </div>
 
         </div>
+      </div>
+    </section>
 
-        <div class="declaration">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="declaration-icon" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
+    <!-- EDUCATION, LANGUAGES & BACKGROUND -->
+    <section id="education" class="section-block reveal-on-scroll">
+      <div class="container">
+        <div class="section-head">
           <div>
-            <strong>Declaration:</strong> I solemnly declare that the details furnished above are true and accurate to the best of my knowledge. — Ashok Mendonsa, Udupi (2026)
+            <span class="section-eyebrow">Academic &amp; Personal Profile</span>
+            <h2 class="section-title">Education &amp; Background</h2>
+            <p class="section-subtitle">Formal postgraduate computer applications training complemented by multilingual communication.</p>
+          </div>
+        </div>
+
+        <div class="journey-bento">
+
+          <!-- Education -->
+          <div class="edu-card spotlight-card">
+            <div class="edu-top">
+              <div>
+                <span class="edu-tag">Postgraduate Degree · In Progress</span>
+                <h3>Master of Computer Applications (MCA)</h3>
+                <p class="edu-inst">Poornaprajna Institute of Management (PIM) · Udupi, Karnataka, India</p>
+              </div>
+              <span class="edu-years">10/2025 – 10/2027</span>
+            </div>
+            <p class="edu-summary">
+              Comprehensive postgraduate curriculum covering advanced data structures and algorithms, object-oriented software engineering, full-stack web development, relational database systems, computer networks, and operating systems.
+            </p>
+            <div class="coursework-chips">
+              <span>Data Structures &amp; Algorithms</span>
+              <span>Object-Oriented Engineering</span>
+              <span>Relational DBMS (3NF)</span>
+              <span>Full-Stack Web Dev</span>
+              <span>Computer Networks</span>
+              <span>Operating Systems</span>
+              <span>Python Data Processing</span>
+            </div>
+          </div>
+
+          <!-- Multilingual Communication -->
+          <div class="lang-card spotlight-card">
+            <div class="card-subhead">
+              <h3>Languages Spoken</h3>
+              <span class="hint-pill">Multilingual</span>
+            </div>
+
+            <div class="lang-bars">
+              <div class="lang-item">
+                <div class="lang-row-top"><span>English</span><span class="lang-lvl">Full Professional</span></div>
+                <div class="lang-track"><span class="w-92"></span></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-row-top"><span>Kannada</span><span class="lang-lvl">Native / Fluent</span></div>
+                <div class="lang-track"><span class="w-100"></span></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-row-top"><span>Konkani</span><span class="lang-lvl">Native / Bilingual</span></div>
+                <div class="lang-track"><span class="w-100"></span></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-row-top"><span>Tulu</span><span class="lang-lvl">Native / Bilingual</span></div>
+                <div class="lang-track"><span class="w-100"></span></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-row-top"><span>Japanese</span><span class="lang-lvl">Elementary (JLPT N5)</span></div>
+                <div class="lang-track"><span class="w-30"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="certs-card spotlight-card">
+            <div class="card-subhead">
+              <h3>Certifications &amp; Credentials</h3>
+            </div>
+            <div class="certs-grid">
+              <div class="cert-item">
+                <div class="cert-top">
+                  <span class="cert-issuer">NPTEL</span>
+                  <span class="cert-badge score">91% Score</span>
+                </div>
+                <h4>Generative AI Using Computer Vision</h4>
+                <p>Deep generative modeling, computer vision architectures, and applied neural pipelines.</p>
+              </div>
+              <div class="cert-item">
+                <div class="cert-top">
+                  <span class="cert-issuer">NPTEL</span>
+                  <span class="cert-badge">Certified</span>
+                </div>
+                <h4>Cloud Computing</h4>
+                <p>Cloud service models, virtualization, distributed infrastructure, and deployment foundations.</p>
+              </div>
+              <div class="cert-item">
+                <div class="cert-top">
+                  <span class="cert-issuer">Productivity &amp; Finance</span>
+                  <span class="cert-badge">Certified</span>
+                </div>
+                <h4>MS Office (Word, PowerPoint, Excel) &amp; Tally</h4>
+                <p>Business documentation, data reporting, spreadsheet modeling, and Tally accounting workflows.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interests & Hobbies -->
+          <div class="craft-card spotlight-card">
+            <h3>Interests &amp; Hobbies</h3>
+            <div class="craft-grid">
+              <div class="craft-item">
+                <span class="craft-kicker">YouTube Content Creation &amp; Photography</span>
+                <p>Producing creative video content, digital editing, and visual storytelling.</p>
+              </div>
+              <div class="craft-item">
+                <span class="craft-kicker">Open-Source &amp; Problem Solving</span>
+                <p>Exploring repositories on GitHub/GitLab and practicing data structures and algorithms.</p>
+              </div>
+              <div class="craft-item">
+                <span class="craft-kicker">Hiking &amp; Gardening</span>
+                <p>Outdoor trail exploration, nature photography, and cultivating home plants.</p>
+              </div>
+              <div class="craft-item">
+                <span class="craft-kicker">Gaming &amp; UI/UX 3D Design</span>
+                <p>Interactive gaming, 3D modeling, and clean spatial interface design.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & VERIFICATION HUB -->
+    <section id="contact" class="section-block reveal-on-scroll">
+      <div class="container">
+        <div class="contact-panel spotlight-card">
+          <div class="contact-intro">
+            <span class="section-eyebrow">Get In Touch</span>
+            <h2 class="section-title">Connect for Full-Stack &amp; Software Engineering Roles</h2>
+            <p class="section-subtitle">
+              Available for full-time junior developer positions, internships, and technical interviews. Email is assembled client-side to protect against automated spam bots and web scrapers.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Protected Email -->
+            <div id="secure-email-card" class="contact-card interactive-email">
+              <div class="contact-icon mail" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-meta">
+                <span class="contact-label">Direct Email (Bot-Protected)</span>
+                <span id="email-display-text" class="contact-value" data-u="YXNob2ttZW5kb25zYS5tY2EuMjAyNQ==" data-h="cGltLmFjLmlu">Click to reveal &amp; copy email</span>
+              </div>
+              <button id="contact-copy-btn" type="button" class="contact-btn primary">Reveal &amp; Copy</button>
+            </div>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/ashok-m-468476233/" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon linkedin" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <div class="contact-meta">
+                <span class="contact-label">LinkedIn Profile</span>
+                <span class="contact-value">linkedin.com/in/ashok-m-468476233</span>
+              </div>
+              <span class="contact-btn">Open ↗</span>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/ashok123m" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon github" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </div>
+              <div class="contact-meta">
+                <span class="contact-label">GitHub Repositories</span>
+                <span class="contact-value">github.com/ashok123m</span>
+              </div>
+              <span class="contact-btn">Open ↗</span>
+            </a>
+
+            <!-- Resume Download -->
+            <a href="Ashok_Mendonsa_Resume.pdf" download="Ashok_Mendonsa_Resume.pdf" class="contact-card">
+              <div class="contact-icon resume" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <div class="contact-meta">
+                <span class="contact-label">ATS-Friendly Resume</span>
+                <span class="contact-value">Ashok_Mendonsa_Resume.pdf</span>
+              </div>
+              <span class="contact-btn">Download ↓</span>
+            </a>
           </div>
         </div>
       </div>
@@ -768,26 +717,94 @@
 
   </main>
 
-  <!-- Minimal Clean Footer -->
-  <footer id="site-footer">
-    <div class="container footer-content">
+  <!-- Minimalist Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
       <div class="footer-left">
-        © <span id="year">2026</span> <strong>Ashok Mendonsa</strong> · Poornaprajna Institute of Management (PIM), Udupi
+        <strong>Ashok Mendonsa</strong> · Full-Stack Software Engineer · Udupi, Karnataka
       </div>
       <div class="footer-right">
-        <a href="#about" class="back-to-top" aria-label="Back to top">
-          <span>Back to top</span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="12" y1="19" x2="12" y2="5"></line>
-            <polyline points="5 12 12 5 19 12"></polyline>
-          </svg>
-        </a>
+        <span>© <span id="year">2026</span> Ashok Mendonsa<button id="secret-dot-trigger" type="button" class="secret-dot-btn" title="Press ." aria-label="Unlock developer easter egg">.</button></span>
+        <a href="#overview" class="back-top">Back to top ↑</a>
       </div>
     </div>
   </footer>
 
-  <!-- Instant Toast Notification -->
-  <div id="toast" role="status" aria-live="polite"></div>
+  <!-- Project Architecture Modal (For Technical Interview Walkthroughs) -->
+  <div id="blueprint-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog blueprint-dialog" role="dialog" aria-modal="true" aria-labelledby="bp-modal-title">
+      <div class="modal-header">
+        <div>
+          <span id="bp-modal-eyebrow" class="section-eyebrow">System Architecture</span>
+          <h3 id="bp-modal-title">Project Architecture</h3>
+        </div>
+        <button id="bp-modal-close" type="button" class="icon-btn" aria-label="Close architecture modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="bp-modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Secret Easter Egg Modal (Unlocked by pressing '.') -->
+  <div id="easter-egg-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog egg-dialog" role="dialog" aria-modal="true" aria-labelledby="egg-modal-title">
+      <div class="modal-header">
+        <div>
+          <span class="section-eyebrow">Secret Mode Unlocked (Press .)</span>
+          <h3 id="egg-modal-title">Bug Squasher Arcade &amp; Dev Lounge</h3>
+        </div>
+        <button id="egg-modal-close" type="button" class="icon-btn" aria-label="Close secret mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body egg-body">
+        <div class="egg-arcade-card">
+          <div class="egg-hud">
+            <div class="egg-stat"><span>Score</span><strong id="egg-score">0</strong></div>
+            <div class="egg-stat"><span>Time</span><strong id="egg-timer">20s</strong></div>
+            <div class="egg-stat"><span>Best</span><strong id="egg-best">0</strong></div>
+            <button id="egg-start-btn" type="button" class="btn btn-primary egg-start-btn">Start Round</button>
+          </div>
+          <p id="egg-status-msg" class="egg-status">Click <strong>BUG</strong> tiles (+10 pts) to patch production before time runs out. Avoid green <strong>API</strong> nodes (-5 pts).</p>
+          <div id="egg-grid" class="egg-grid" aria-label="Bug Squasher Game Grid"></div>
+        </div>
+
+        <div class="egg-lounge-card">
+          <div class="egg-lounge-head">
+            <span class="section-eyebrow">Say Hello in 5 Languages</span>
+            <span id="egg-lang-note" class="egg-lang-note">English · Full Professional</span>
+          </div>
+          <div id="egg-greeting-banner" class="egg-greeting-banner">Hello! Thanks for checking out my portfolio.</div>
+          <div class="egg-lang-pills">
+            <button type="button" class="egg-lang-btn active" data-phrase="Hello! Thanks for checking out my portfolio." data-note="English · Full Professional">English</button>
+            <button type="button" class="egg-lang-btn" data-phrase="ನಮಸ್ಕಾರ! ನನ್ನ ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ನೋಡಿದಕ್ಕೆ ಧನ್ಯವಾದಗಳು." data-note="Kannada · Native">ಕನ್ನಡ</button>
+            <button type="button" class="egg-lang-btn" data-phrase="देव बरे करूं! म्हजो पोर्टफोलियो पळयल्ल्याक धन्यवाद." data-note="Konkani · Native">कोंकणी</button>
+            <button type="button" class="egg-lang-btn" data-phrase="ನಮಸ್ಕಾರ! ಎನ್ನ ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ತೂಯಿನೆಕ್ ಸೊಲ್ಮೆಲು." data-note="Tulu · Native">ತುಳು</button>
+            <button type="button" class="egg-lang-btn" data-phrase="こんにちは！ポートフォリオをご覧いただきありがとうございます。" data-note="Japanese · Elementary (JLPT N5)">日本語</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Always-Visible Scroll to Top Button -->
+  <button id="scroll-top-btn" class="scroll-top-fab" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>

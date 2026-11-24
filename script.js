@@ -1,246 +1,540 @@
 /**
- * Ashok Mendonsa — Portfolio JavaScript
- * Lightweight, Vanilla ES6+, Zero Dependencies.
+ * ASHOK MENDONSA — FULL-STACK SOFTWARE ENGINEER PORTFOLIO
+ * CSP-Compliant Vanilla JS (Zero inline scripts/styles, anti-scraper email protection)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // -------------------------------------------------------------------------
-  // 1. Dynamic Year in Footer
-  // -------------------------------------------------------------------------
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 1. Dynamic Year
   const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // 2. Toast Feedback
+  const toastEl = document.getElementById('toast');
+  let toastTimer = null;
+  function showToast(message) {
+    if (!toastEl) return;
+    toastEl.textContent = message;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3200);
   }
 
-  // -------------------------------------------------------------------------
-  // 2. Minimal Dark Mode Engine: Auto-Detects System/Browser Theme
-  // -------------------------------------------------------------------------
-  const themeBtn = document.getElementById('theme-btn');
-  const storageKey = 'ashok-theme-choice';
+  // 3. Dark / Light Theme Toggle
+  const html = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('fport_theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
 
-  function getSystemTheme() {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+  function toggleTheme() {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('fport_theme', next);
+    showToast(`Switched to ${next} theme`);
   }
 
-  function getPreferredTheme() {
-    const saved = localStorage.getItem(storageKey);
-    // If the user has explicitly selected a preference ('dark' or 'light'), honor it.
-    // Otherwise, automatically detect and follow the system/browser mode!
-    if (saved === 'dark' || saved === 'light') {
-      return saved;
-    }
-    return getSystemTheme();
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
   }
 
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    if (themeBtn) {
-      themeBtn.setAttribute('title', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
-      themeBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
-      themeBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-    }
-  }
-
-  // Initialize theme on page load
-  const initialTheme = getPreferredTheme();
-  applyTheme(initialTheme);
-
-  // Toggle button click listener
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || getSystemTheme();
-      const nextTheme = current === 'dark' ? 'light' : 'dark';
-      applyTheme(nextTheme);
-      localStorage.setItem(storageKey, nextTheme);
-    });
-  }
-
-  // Dynamically listen for OS / browser theme changes in real time:
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      // Automatically adapt if user hasn't explicitly chosen a sticky override
-      if (!localStorage.getItem(storageKey)) {
-        applyTheme(e.matches ? 'dark' : 'light');
-      }
-    });
-  }
-
-  // -------------------------------------------------------------------------
-  // 3. Mobile Navigation Drawer
-  // -------------------------------------------------------------------------
-  const menuToggleBtn = document.getElementById('menu-toggle-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (menuToggleBtn && mobileMenu) {
-    menuToggleBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('open');
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
+  // 4. Mobile Menu Drawer
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      const open = mobileDrawer.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+      mobileDrawer.setAttribute('aria-hidden', String(!open));
     });
 
-    function openMobileMenu() {
-      mobileMenu.classList.add('open');
-      menuToggleBtn.setAttribute('aria-expanded', 'true');
-      mobileMenu.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeMobileMenu() {
-      mobileMenu.classList.remove('open');
-      menuToggleBtn.setAttribute('aria-expanded', 'false');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-    }
-
-    // Auto-close when clicking any link inside mobile nav
-    mobileMenu.querySelectorAll('a').forEach(link => {
+    mobileDrawer.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        closeMobileMenu();
+        mobileDrawer.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
       });
     });
+  }
 
-    // Close mobile menu if window resized to desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
-        closeMobileMenu();
+  // 5. Scroll Progress & Navigation Scrollspy
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const navLinks = document.querySelectorAll('.primary-nav .nav-link');
+  const sections = document.querySelectorAll('main section[id]');
+
+  function onScroll() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar && docHeight > 0) {
+      const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+      progressBar.style.width = `${pct}%`;
+    }
+
+    let currentId = 'overview';
+    sections.forEach(sec => {
+      if (scrollTop >= sec.offsetTop - 130) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // 6. Scroll Reveal Observer
+  const revealEls = document.querySelectorAll('.reveal-on-scroll');
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('revealed'));
+  }
+
+  // 7. Bot & Scraper Protection: Honeypot + Human-Triggered Email Decryption
+  const emailDisplay = document.getElementById('email-display-text');
+  const heroCopyBtn = document.getElementById('hero-copy-email');
+  const contactCopyBtn = document.getElementById('contact-copy-btn');
+  const secureEmailCard = document.getElementById('secure-email-card');
+  const botCatcher = document.getElementById('bot-catcher-input');
+  let botFlagged = false;
+  let lastActionTime = 0;
+
+  if (botCatcher) {
+    botCatcher.addEventListener('input', () => {
+      if (botCatcher.value.trim().length > 0) {
+        botFlagged = true;
       }
     });
   }
 
-  // -------------------------------------------------------------------------
-  // 4. Interactive Skills Category Filter
-  // -------------------------------------------------------------------------
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const skillCards = document.querySelectorAll('.skill-card');
+  function decryptEmail(event) {
+    if (botFlagged) return null;
+    if (event && event.isTrusted === false) return null;
 
-  if (filterTabs.length > 0 && skillCards.length > 0) {
-    filterTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Toggle active tab
-        filterTabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-
-        const filter = tab.getAttribute('data-filter');
-
-        skillCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            card.style.display = 'block';
-            card.style.animation = 'fadeIn 0.25s ease';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
+    const u = emailDisplay ? emailDisplay.dataset.u : 'YXNob2ttZW5kb25zYS5tY2EuMjAyNQ==';
+    const h = emailDisplay ? emailDisplay.dataset.h : 'cGltLmFjLmlu';
+    try {
+      return `${atob(u)}@${atob(h)}`;
+    } catch {
+      return null;
+    }
   }
 
-  // -------------------------------------------------------------------------
-  // 5. One-Click Copy to Clipboard with Visual Feedback
-  // -------------------------------------------------------------------------
-  const copyButtons = document.querySelectorAll('.copy-trigger');
-  copyButtons.forEach(btn => {
+  function copyVerifiedEmail(event) {
+    if (event) event.preventDefault();
+
+    const now = Date.now();
+    if (now - lastActionTime < 400) return;
+    lastActionTime = now;
+
+    const email = decryptEmail(event);
+    if (!email) {
+      showToast('Automated access blocked.');
+      return;
+    }
+
+    if (emailDisplay) {
+      emailDisplay.textContent = email;
+      emailDisplay.classList.add('revealed-email');
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email)
+        .then(() => showToast(`Copied ${email} to clipboard`))
+        .catch(() => showToast(`Email: ${email}`));
+    } else {
+      showToast(`Email: ${email}`);
+    }
+  }
+
+  if (heroCopyBtn) heroCopyBtn.addEventListener('click', copyVerifiedEmail);
+  if (contactCopyBtn) {
+    contactCopyBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      copyVerifiedEmail(e);
+    });
+  }
+  if (secureEmailCard) secureEmailCard.addEventListener('click', copyVerifiedEmail);
+
+  // 8. Project Filter Tabs
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const textToCopy = btn.getAttribute('data-copy');
-      if (!textToCopy) return;
-
-      const originalHTML = btn.innerHTML;
-
-      const successFeedback = () => {
-        btn.classList.add('copied');
-        btn.innerHTML = `
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-          <span>Copied!</span>
-        `;
-        showToast(`Copied to clipboard: ${textToCopy}`);
-
-        setTimeout(() => {
-          btn.classList.remove('copied');
-          btn.innerHTML = originalHTML;
-        }, 2000);
-      };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(textToCopy)
-          .then(successFeedback)
-          .catch(() => fallbackCopy(textToCopy, successFeedback));
-      } else {
-        fallbackCopy(textToCopy, successFeedback);
-      }
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      projectCards.forEach(card => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !show);
+      });
     });
   });
 
-  function fallbackCopy(text, callback) {
-    try {
-      const tempInput = document.createElement('input');
-      tempInput.style.position = 'fixed';
-      tempInput.style.left = '-9999px';
-      tempInput.value = text;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(tempInput);
-      callback();
-    } catch (e) {
-      showToast('Could not copy automatically. Please copy manually.');
+  // 9. Skills Filter Tabs
+  const skillFilterBtns = document.querySelectorAll('.skill-filter-btn');
+  const skillDomains = document.querySelectorAll('.skill-domain');
+
+  skillFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skillFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.skillCat;
+      skillDomains.forEach(dom => {
+        const show = cat === 'all' || dom.dataset.skillDomain === cat;
+        dom.classList.toggle('is-hidden', !show);
+      });
+    });
+  });
+
+  // 10. Project Architecture Modal (Interview Walkthrough)
+  const bpModal = document.getElementById('blueprint-modal');
+  const bpTitle = document.getElementById('bp-modal-title');
+  const bpEyebrow = document.getElementById('bp-modal-eyebrow');
+  const bpBody = document.getElementById('bp-modal-body');
+  const bpClose = document.getElementById('bp-modal-close');
+
+  const projectBlueprints = {
+    furniture: {
+      eyebrow: 'Full-Stack Web Architecture',
+      title: 'Bespoke Furniture E-Commerce Web Platform',
+      nodes: [
+        { layer: 'Frontend', title: 'ES6+ JS & CSS3 Grid UI' },
+        { layer: 'Backend', title: 'Modular PHP Controllers' },
+        { layer: 'Database', title: '3NF MySQL + PDO Queries' },
+        { layer: 'Automation', title: 'Python Batch ETL Scripts' }
+      ],
+      challenge: 'Build a custom furniture commerce platform from scratch with strict relational integrity, secure session auth, and fast bulk catalog maintenance.',
+      decisions: [
+        'Designed a 3NF normalized MySQL schema with foreign-key constraints for ACID order transactions.',
+        'Implemented parameterized PDO SQL queries, input sanitization, and session auth to prevent SQL injection.',
+        'Wrote Python utility scripts for automated catalog ingestion, schema verification, and stock synchronization.',
+        'Built responsive CSS3 Grid layouts with zero external UI framework dependencies.'
+      ],
+      stack: ['PHP', 'JavaScript (ES6+)', 'Python', 'MySQL (3NF)', 'CSS3 Grid', 'REST APIs']
+    },
+    edupulse: {
+      eyebrow: 'Data & Predictive Analytics Architecture',
+      title: 'EduPulse AI — Academic Risk & Pattern Detection',
+      nodes: [
+        { layer: 'Data Sources', title: 'Attendance & Quiz Logs' },
+        { layer: 'Preprocessing', title: 'Pandas & NumPy Scaling' },
+        { layer: 'ML Pipeline', title: 'Scikit-Learn Classifiers' },
+        { layer: 'Reporting', title: 'Faculty Risk-Tier Alerts' }
+      ],
+      challenge: 'Detect early academic decline patterns across longitudinal coursework records so faculty can intervene before final exams.',
+      decisions: [
+        'Engineered automated Pandas and NumPy pipelines for missing-value imputation, encoding, and scaling.',
+        'Evaluated supervised classification models using K-Fold cross-validation and precision-recall metrics.',
+        'Stratified students into clear risk tiers with rule-based alert thresholds for faculty decision support.'
+      ],
+      stack: ['Python', 'Scikit-Learn', 'Pandas', 'NumPy', 'Data Mining', 'K-Fold CV']
+    },
+    grocery: {
+      eyebrow: 'Mobile Application Architecture',
+      title: 'Mobile Grocery Delivery Application',
+      nodes: [
+        { layer: 'UI Layer', title: 'Activities & Filters' },
+        { layer: 'State', title: 'MVVM ViewModel + LiveData' },
+        { layer: 'Local Store', title: 'Room / SQLite Cache' },
+        { layer: 'Backend Sync', title: 'REST Inventory & Checkout' }
+      ],
+      challenge: 'Deliver responsive catalog browsing and reliable shopping cart persistence even on intermittent mobile connections.',
+      decisions: [
+        'Adopted MVVM separation so UI state survives configuration changes via lifecycle-aware ViewModels.',
+        'Indexed Room / SQLite local cart tables for fast recovery and offline-first ordering.',
+        'Offloaded database reads and stock validation to background threads.',
+        'Collaborated in agile team sprints using structured Git branching and pull request reviews.'
+      ],
+      stack: ['Java', 'Kotlin', 'Android SDK', 'Room DB', 'SQLite', 'RESTful APIs', 'Git']
+    }
+  };
+
+  function openBlueprintModal(key) {
+    const data = projectBlueprints[key];
+    if (!data || !bpModal || !bpBody) return;
+
+    if (bpEyebrow) bpEyebrow.textContent = data.eyebrow;
+    if (bpTitle) bpTitle.textContent = data.title;
+    bpBody.innerHTML = '';
+
+    const diag = document.createElement('div');
+    diag.className = 'bp-diagram';
+    const flow = document.createElement('div');
+    flow.className = 'bp-flow';
+
+    data.nodes.forEach((node, idx) => {
+      const box = document.createElement('div');
+      box.className = 'bp-node';
+      const l = document.createElement('span');
+      l.className = 'bp-node-layer';
+      l.textContent = node.layer;
+      const t = document.createElement('div');
+      t.className = 'bp-node-title';
+      t.textContent = node.title;
+      box.append(l, t);
+      flow.appendChild(box);
+
+      if (idx < data.nodes.length - 1) {
+        const arr = document.createElement('span');
+        arr.className = 'bp-arrow';
+        arr.textContent = '→';
+        flow.appendChild(arr);
+      }
+    });
+    diag.appendChild(flow);
+
+    const grid = document.createElement('div');
+    grid.className = 'bp-details-grid';
+
+    const chalBox = document.createElement('div');
+    chalBox.className = 'bp-box';
+    const chalH = document.createElement('h4');
+    chalH.textContent = 'Problem & Goal';
+    const chalP = document.createElement('p');
+    chalP.textContent = data.challenge;
+    chalBox.append(chalH, chalP);
+
+    const stackBox = document.createElement('div');
+    stackBox.className = 'bp-box';
+    const stackH = document.createElement('h4');
+    stackH.textContent = 'Technologies Used';
+    const stackTags = document.createElement('div');
+    stackTags.className = 'tech-tag-row bp-tags-inline';
+    data.stack.forEach(s => {
+      const sp = document.createElement('span');
+      sp.textContent = s;
+      stackTags.appendChild(sp);
+    });
+    stackBox.append(stackH, stackTags);
+    grid.append(chalBox, stackBox);
+
+    const decBox = document.createElement('div');
+    decBox.className = 'bp-box';
+    const decH = document.createElement('h4');
+    decH.textContent = 'Key Engineering Decisions';
+    const ul = document.createElement('ul');
+    data.decisions.forEach(d => {
+      const li = document.createElement('li');
+      li.textContent = d;
+      ul.appendChild(li);
+    });
+    decBox.append(decH, ul);
+
+    bpBody.append(diag, grid, decBox);
+
+    bpModal.classList.add('open');
+    bpModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeBlueprintModal() {
+    if (!bpModal) return;
+    bpModal.classList.remove('open');
+    bpModal.setAttribute('aria-hidden', 'true');
+  }
+
+  document.querySelectorAll('.btn-blueprint').forEach(btn => {
+    btn.addEventListener('click', () => openBlueprintModal(btn.dataset.project));
+  });
+  if (bpClose) bpClose.addEventListener('click', closeBlueprintModal);
+  if (bpModal) {
+    bpModal.addEventListener('click', (e) => {
+      if (e.target === bpModal) closeBlueprintModal();
+    });
+  }
+
+  // Always-visible Scroll to Top Button
+  const scrollTopBtn = document.getElementById('scroll-top-btn');
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+    });
+  }
+
+  // Secret Easter Egg (Unlocked by pressing '.' or clicking the footer dot)
+  const eggModal = document.getElementById('easter-egg-modal');
+  const eggClose = document.getElementById('egg-modal-close');
+  const secretDotBtn = document.getElementById('secret-dot-trigger');
+  const eggGrid = document.getElementById('egg-grid');
+  const eggScoreEl = document.getElementById('egg-score');
+  const eggTimerEl = document.getElementById('egg-timer');
+  const eggBestEl = document.getElementById('egg-best');
+  const eggStartBtn = document.getElementById('egg-start-btn');
+  const eggStatusEl = document.getElementById('egg-status-msg');
+  const eggLangBtns = document.querySelectorAll('.egg-lang-btn');
+  const eggGreetingBanner = document.getElementById('egg-greeting-banner');
+  const eggLangNote = document.getElementById('egg-lang-note');
+
+  let eggScore = 0;
+  let eggTime = 20;
+  let eggBest = Number(localStorage.getItem('fport_egg_best') || 0);
+  let eggTickTimer = null;
+  let eggSpawnTimer = null;
+  let eggPlaying = false;
+  const eggCells = [];
+
+  if (eggBestEl) eggBestEl.textContent = String(eggBest);
+
+  if (eggGrid) {
+    for (let i = 0; i < 12; i++) {
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'egg-cell';
+      cell.textContent = `NODE ${i + 1}`;
+      cell.dataset.state = 'idle';
+      cell.addEventListener('click', () => {
+        if (!eggPlaying) return;
+        if (cell.dataset.state === 'bug') {
+          eggScore += 10;
+          cell.dataset.state = 'idle';
+          cell.className = 'egg-cell';
+          cell.textContent = 'FIXED';
+        } else if (cell.dataset.state === 'api') {
+          eggScore = Math.max(0, eggScore - 5);
+          cell.dataset.state = 'idle';
+          cell.className = 'egg-cell';
+          cell.textContent = 'OOPS';
+        }
+        if (eggScoreEl) eggScoreEl.textContent = String(eggScore);
+      });
+      eggGrid.appendChild(cell);
+      eggCells.push(cell);
     }
   }
 
-  // -------------------------------------------------------------------------
-  // 6. Minimal Toast Notification Engine
-  // -------------------------------------------------------------------------
-  let toastTimer = null;
-  function showToast(message) {
-    const toast = document.getElementById('toast');
-    if (!toast) return;
-
-    toast.textContent = message;
-    toast.classList.add('show');
-
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2400);
+  function clearEggBoard() {
+    eggCells.forEach((cell, idx) => {
+      cell.dataset.state = 'idle';
+      cell.className = 'egg-cell';
+      cell.textContent = `NODE ${idx + 1}`;
+    });
   }
 
-  // -------------------------------------------------------------------------
-  // 7. ScrollSpy: Highlight Active Section in Navigation
-  // -------------------------------------------------------------------------
-  const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
-  const sections = document.querySelectorAll('section[id]');
+  function stopEggGame() {
+    eggPlaying = false;
+    clearInterval(eggTickTimer);
+    clearInterval(eggSpawnTimer);
+    clearEggBoard();
+    if (eggStartBtn) eggStartBtn.textContent = 'Play Again';
+  }
 
-  if (sections.length > 0 && navLinks.length > 0) {
-    window.addEventListener('scroll', () => {
-      let currentSectionId = '';
-      const scrollY = window.pageYOffset;
+  function spawnEggTile() {
+    clearEggBoard();
+    const bugIdx = Math.floor(Math.random() * eggCells.length);
+    const bugCell = eggCells[bugIdx];
+    bugCell.dataset.state = 'bug';
+    bugCell.className = 'egg-cell is-bug';
+    bugCell.textContent = 'BUG';
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          currentSectionId = section.getAttribute('id');
-        }
-      });
+    if (Math.random() > 0.35) {
+      let apiIdx = Math.floor(Math.random() * eggCells.length);
+      if (apiIdx === bugIdx) apiIdx = (bugIdx + 1) % eggCells.length;
+      const apiCell = eggCells[apiIdx];
+      apiCell.dataset.state = 'api';
+      apiCell.className = 'egg-cell is-api';
+      apiCell.textContent = 'API OK';
+    }
+  }
 
-      navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === `#${currentSectionId}`) {
-          link.style.color = 'var(--text)';
-          link.style.background = 'var(--bg-subtle)';
+  function startEggGame() {
+    stopEggGame();
+    eggPlaying = true;
+    eggScore = 0;
+    eggTime = 20;
+    if (eggScoreEl) eggScoreEl.textContent = '0';
+    if (eggTimerEl) eggTimerEl.textContent = '20s';
+    if (eggStartBtn) eggStartBtn.textContent = 'Restart';
+    if (eggStatusEl) eggStatusEl.textContent = 'Squash red BUG tiles (+10) and spare green API OK nodes (-5)!';
+
+    spawnEggTile();
+    eggSpawnTimer = setInterval(spawnEggTile, 750);
+    eggTickTimer = setInterval(() => {
+      eggTime -= 1;
+      if (eggTimerEl) eggTimerEl.textContent = `${eggTime}s`;
+      if (eggTime <= 0) {
+        stopEggGame();
+        if (eggScore > eggBest) {
+          eggBest = eggScore;
+          localStorage.setItem('fport_egg_best', String(eggBest));
+          if (eggBestEl) eggBestEl.textContent = String(eggBest);
+          if (eggStatusEl) eggStatusEl.textContent = `New High Score: ${eggScore} pts! Production is spotless.`;
         } else {
-          link.style.color = '';
-          link.style.background = '';
+          if (eggStatusEl) eggStatusEl.textContent = `Round complete! Final score: ${eggScore} pts.`;
         }
-      });
-    }, { passive: true });
+      }
+    }, 1000);
   }
+
+  function openEggModal() {
+    if (!eggModal) return;
+    eggModal.classList.add('open');
+    eggModal.setAttribute('aria-hidden', 'false');
+    showToast('Secret Developer Arcade unlocked!');
+  }
+
+  function closeEggModal() {
+    if (!eggModal) return;
+    stopEggGame();
+    eggModal.classList.remove('open');
+    eggModal.setAttribute('aria-hidden', 'true');
+  }
+
+  if (eggStartBtn) eggStartBtn.addEventListener('click', startEggGame);
+  if (eggClose) eggClose.addEventListener('click', closeEggModal);
+  if (secretDotBtn) secretDotBtn.addEventListener('click', openEggModal);
+  if (eggModal) {
+    eggModal.addEventListener('click', (e) => {
+      if (e.target === eggModal) closeEggModal();
+    });
+  }
+
+  eggLangBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      eggLangBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (eggGreetingBanner) eggGreetingBanner.textContent = btn.dataset.phrase || '';
+      if (eggLangNote) eggLangNote.textContent = btn.dataset.note || '';
+    });
+  });
+
+  // Keyboard shortcuts: '.' toggles Easter Egg, Escape closes modals, T toggles theme
+  document.addEventListener('keydown', (e) => {
+    const tag = document.activeElement ? document.activeElement.tagName : '';
+    const isTyping = tag === 'INPUT' || tag === 'TEXTAREA';
+
+    if (e.key === 'Escape') {
+      if (bpModal && bpModal.classList.contains('open')) closeBlueprintModal();
+      if (eggModal && eggModal.classList.contains('open')) closeEggModal();
+      return;
+    }
+
+    if (!isTyping && e.key === '.') {
+      e.preventDefault();
+      if (eggModal && eggModal.classList.contains('open')) {
+        closeEggModal();
+      } else {
+        openEggModal();
+      }
+      return;
+    }
+
+    if (!isTyping && e.key.toLowerCase() === 't') {
+      toggleTheme();
+    }
+  });
 });
