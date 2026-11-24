@@ -225,6 +225,24 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       stack: ['PHP', 'JavaScript (ES6+)', 'Python', 'MySQL (3NF)', 'CSS3 Grid', 'REST APIs']
     },
+    freelancer: {
+      eyebrow: 'Full-Stack Marketplace Architecture (BCA 3-Person Team)',
+      title: 'Freelancer Job Portal & Hiring Platform',
+      nodes: [
+        { layer: 'Client UI', title: 'Job Feed & Dashboards' },
+        { layer: 'Web Server', title: 'Django Views & Routing' },
+        { layer: 'Access', title: 'Client / Freelancer Roles' },
+        { layer: 'Database', title: 'MongoDB Document Store' }
+      ],
+      challenge: 'Coordinate a 3-developer team to build a dual-role marketplace handling job listings, freelancer proposals, and user workflows cleanly.',
+      decisions: [
+        'Structured Django views and template routing to separate client job management from freelancer proposal tracking.',
+        'Modeled flexible MongoDB collections for user accounts, job posts, and proposal bids without rigid schema friction.',
+        'Implemented role-based session access and input validation on job creation and bidding forms.',
+        'Divided UI, Django backend, and MongoDB integration modules across 3 developers using Git collaboration.'
+      ],
+      stack: ['Python', 'Django', 'MongoDB', 'JavaScript (ES6+)', 'HTML5 / CSS3', 'Git']
+    },
     edupulse: {
       eyebrow: 'Data & Predictive Analytics Architecture',
       title: 'EduPulse AI — Academic Risk & Pattern Detection',
