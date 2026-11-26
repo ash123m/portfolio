@@ -1,0 +1,9 @@
+{
+  "name": "poornaprajna-freshers-2026",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Poornaprajna Institute of Management - Department of MCA Freshers Day 2026 QR Check-In & Welcome Experience",
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}

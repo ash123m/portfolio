@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Coordinator Portal | Poornaprajna MCA Freshers Day 2026</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #060E24;
+      --navy-900: #0A1633;
+      --maroon: #6E1423;
+      --maroon-bright: #8F1D31;
+      --gold: #F4C430;
+      --gold-soft: #FFD966;
+      --cream: #FFFAF0;
+      --muted: rgba(255, 250, 240, 0.72);
+      --border: rgba(244, 196, 48, 0.28);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(143, 29, 49, 0.38), transparent 45%),
+        linear-gradient(165deg, var(--navy-950) 0%, var(--navy-900) 60%, #12183C 100%);
+      padding: 24px 16px 48px;
+    }
+
+    .wrap {
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .brand h1 {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--gold-soft);
+    }
+
+    .brand p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill-link,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .pill-link {
+      background: rgba(15, 29, 64, 0.72);
+      color: var(--cream);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #F4C430, #FFD966);
+      color: #060E24;
+      border-color: #FFFAF0;
+    }
+
+    .btn-maroon {
+      background: linear-gradient(135deg, var(--maroon-bright), var(--maroon));
+      color: var(--cream);
+      border-color: var(--gold);
+    }
+
+    .btn-outline {
+      background: rgba(10, 22, 51, 0.8);
+      color: var(--cream);
+    }
+
+    .btn-danger {
+      padding: 6px 12px;
+      font-size: 0.76rem;
+      background: rgba(185, 28, 28, 0.28);
+      border-color: rgba(252, 165, 165, 0.45);
+      color: #fecaca;
+    }
+
+    .btn-edit {
+      padding: 6px 12px;
+      font-size: 0.76rem;
+      background: rgba(244, 196, 48, 0.16);
+      border-color: rgba(244, 196, 48, 0.42);
+      color: var(--gold-soft);
+    }
+
+    .row-actions {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn:disabled {
+      opacity: 0.65;
+      cursor: wait;
+      transform: none;
+    }
+
+    /* Compact continuous table on mobile */
+    @media (max-width: 720px) {
+      .card {
+        padding: 18px 14px;
+      }
+
+      .table-controls input[type="search"] {
+        max-width: 100%;
+      }
+
+      table {
+        font-size: 0.82rem;
+      }
+
+      th, td {
+        padding: 9px 8px;
+      }
+    }
+
+    .btn:hover, .pill-link:hover { transform: translateY(-1px); border-color: var(--gold-soft); }
+
+    .card {
+      background: rgba(13, 25, 56, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.45);
+      margin-bottom: 20px;
+    }
+
+    .pin-card {
+      max-width: 420px;
+      margin: 48px auto;
+      text-align: center;
+    }
+
+    .pin-card h2 {
+      font-family: 'Cinzel', Georgia, serif;
+      color: var(--gold-soft);
+      margin-bottom: 8px;
+    }
+
+    .pin-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 680px) {
+      .form-grid-3 {
+        grid-template-columns: 1.2fr 1fr auto;
+        align-items: end;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="search"],
+    input[type="datetime-local"] {
+      width: 100%;
+      padding: 11px 13px;
+      border-radius: 10px;
+      border: 1px solid rgba(244, 196, 48, 0.36);
+      background: rgba(6, 14, 36, 0.85);
+      color: var(--cream);
+      font-family: inherit;
+      font-size: 0.94rem;
+      color-scheme: dark;
+    }
+
+    .feedback-cell {
+      max-width: 280px;
+      white-space: normal;
+      line-height: 1.35;
+      color: var(--cream);
+    }
+
+    .rating-pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(244, 196, 48, 0.16);
+      border: 1px solid rgba(244, 196, 48, 0.38);
+      color: var(--gold-soft);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .pin-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .pin-input-wrap input {
+      padding-right: 46px;
+    }
+
+    .pin-toggle-btn {
+      position: absolute;
+      right: 8px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--gold-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .pin-toggle-btn:hover,
+    .pin-toggle-btn:focus-visible {
+      background: rgba(244, 196, 48, 0.14);
+      outline: none;
+    }
+
+    .pin-toggle-btn .eye-hide { display: none; }
+    .pin-toggle-btn[aria-pressed="true"] .eye-show { display: none; }
+    .pin-toggle-btn[aria-pressed="true"] .eye-hide { display: block; }
+
+    input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.2);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .checkbox-row input { width: 16px; height: 16px; accent-color: var(--gold); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .kpi {
+      background: rgba(10, 22, 51, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    .kpi-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+    }
+
+    .kpi-val {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--cream);
+      margin-top: 4px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 1.12rem;
+      color: var(--gold-soft);
+      margin-bottom: 12px;
+    }
+
+    .table-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .table-controls input[type="search"] {
+      max-width: 320px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 11px 10px;
+      text-align: left;
+      border-bottom: 1px solid rgba(244, 196, 48, 0.16);
+      white-space: nowrap;
+    }
+
+    th {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .badge-qr {
+      background: rgba(16, 185, 129, 0.18);
+      color: #a7f3d0;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .badge-override {
+      background: rgba(244, 196, 48, 0.18);
+      color: #fde68a;
+      border: 1px solid rgba(244, 196, 48, 0.4);
+    }
+
+    .msg {
+      margin-top: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+    .msg-error { color: #fecaca; }
+    .msg-ok { color: #a7f3d0; }
+
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a href="index.html" title="Go to Welcome Page" style="display:inline-flex;border-radius:50%;">
+          <img src="assets/logo.png" alt="PIM Logo">
+        </a>
+        <div>
+          <h1>Coordinator &amp; Professor Portal</h1>
+          <p>Poornaprajna Institute of Management • Department of MCA</p>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="pill-link">Welcome Page</a>
+        <a href="qr.html" class="pill-link">Poster QR Studio</a>
+        <button id="btn-lock-portal" class="pill-link" type="button" hidden>Lock</button>
+      </div>
+    </header>
+
+    <!-- PIN Gate -->
+    <section id="pin-section" class="card pin-card">
+      <h2>Incharge Access</h2>
+      <p>Enter the Coordinator PIN to view student check-ins, use Direct Entry Override, or export Excel/CSV.</p>
+      <form id="pin-form" class="form-grid">
+        <div>
+          <label for="admin-pin">Coordinator PIN</label>
+          <div class="pin-input-wrap">
+            <input id="admin-pin" type="password" placeholder="Enter Coordinator PIN" autocomplete="current-password" required>
+            <button id="toggle-pin-btn" class="pin-toggle-btn" type="button" aria-pressed="false" aria-label="Show Coordinator PIN" title="Show or hide PIN">
+              <svg class="eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button id="pin-submit" class="btn btn-gold" type="submit">Unlock Portal</button>
+      </form>
+      <p id="pin-error" class="msg msg-error" hidden></p>
+    </section>
+
+    <!-- Dashboard -->
+    <main id="dashboard-section" hidden>
+      <section class="kpi-grid">
+        <div class="kpi">
+          <div class="kpi-label">Total Checked In</div>
+          <div id="kpi-total" class="kpi-val">0</div>
+        </div>
+      </section>
+
+      <!-- Incharge Direct Entry / Override -->
+      <section class="card">
+        <h2 class="section-title">Incharge Direct Entry / Override</h2>
+        <form id="override-form">
+          <div class="form-grid form-grid-3">
+            <div>
+              <label for="ov-name">Student Full Name</label>
+              <input id="ov-name" type="text" placeholder="e.g. Ananya Rao" minlength="2" maxlength="80" required>
+            </div>
+            <div>
+              <label for="ov-roll">Roll Number</label>
+              <input id="ov-roll" type="text" inputmode="numeric" pattern="261[0-9]{2}" placeholder="e.g. 26101" minlength="5" maxlength="5" required>
+            </div>
+            <button id="ov-submit" class="btn btn-maroon" type="submit">Direct Entry / Save</button>
+          </div>
+          <label class="checkbox-row">
+            <input id="ov-force" type="checkbox">
+            <span>Force Update if this Roll Number already exists (fixes typos or overwrites name)</span>
+          </label>
+          <p id="ov-msg" class="msg" hidden></p>
+        </form>
+      </section>
+
+      <!-- Feedback Unlock Timer Control -->
+      <section class="card">
+        <h2 class="section-title">Feedback Unlock Timer (IST)</h2>
+        <form id="timer-form">
+          <div class="form-grid form-grid-3">
+            <div>
+              <label for="feedback-unlock-input">Unlock Date &amp; Time (IST)</label>
+              <input id="feedback-unlock-input" type="datetime-local" required>
+            </div>
+            <button id="btn-save-timer" class="btn btn-gold" type="submit">Save Unlock Timer</button>
+            <button id="btn-unlock-now" class="btn btn-outline" type="button">Unlock Now</button>
+          </div>
+          <p id="timer-status" class="msg msg-ok" hidden></p>
+        </form>
+      </section>
+
+      <!-- Attendance Table + CSV Export -->
+      <section class="card">
+        <div class="table-controls">
+          <input id="search-input" type="search" placeholder="Search by Name, Roll No, or Feedback...">
+          <div class="nav-actions">
+            <button id="btn-refresh" class="btn btn-outline" type="button">Refresh</button>
+            <a id="btn-export" class="btn btn-gold" href="/api/admin/export">Download CSV / Excel</a>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Roll No</th>
+                <th>Full Name</th>
+                <th>Rating</th>
+                <th>Feedback</th>
+                <th>Checked In (IST)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="entries-tbody">
+              <tr><td colspan="7">Loading entries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const pinSection = document.getElementById('pin-section');
+      const dashboardSection = document.getElementById('dashboard-section');
+      const pinForm = document.getElementById('pin-form');
+      const pinInput = document.getElementById('admin-pin');
+      const pinSubmitBtn = document.getElementById('pin-submit');
+      const togglePinBtn = document.getElementById('toggle-pin-btn');
+      const pinError = document.getElementById('pin-error');
+
+      if (togglePinBtn && pinInput) {
+        togglePinBtn.addEventListener('click', () => {
+          const showing = pinInput.type === 'text';
+          pinInput.type = showing ? 'password' : 'text';
+          togglePinBtn.setAttribute('aria-pressed', String(!showing));
+          togglePinBtn.setAttribute('aria-label', showing ? 'Show Coordinator PIN' : 'Hide Coordinator PIN');
+        });
+      }
+
+      const ovForm = document.getElementById('override-form');
+      const ovName = document.getElementById('ov-name');
+      const ovRoll = document.getElementById('ov-roll');
+      const ovForce = document.getElementById('ov-force');
+      const ovMsg = document.getElementById('ov-msg');
+
+      const timerForm = document.getElementById('timer-form');
+      const timerInput = document.getElementById('feedback-unlock-input');
+      const unlockNowBtn = document.getElementById('btn-unlock-now');
+      const timerStatus = document.getElementById('timer-status');
+
+      const searchInput = document.getElementById('search-input');
+      const refreshBtn = document.getElementById('btn-refresh');
+      const lockBtn = document.getElementById('btn-lock-portal');
+      const tbody = document.getElementById('entries-tbody');
+
+      const kpiTotal = document.getElementById('kpi-total');
+
+      let allEntries = [];
+
+      function showMsg(el, text, isError) {
+        if (!text) {
+          el.hidden = true;
+          el.textContent = '';
+          return;
+        }
+        el.textContent = text;
+        el.className = isError ? 'msg msg-error' : 'msg msg-ok';
+        el.hidden = false;
+      }
+
+      function formatIST(iso) {
+        try {
+          return new Date(iso).toLocaleString('en-IN', {
+            timeZone: 'Asia/Kolkata',
+            day: '2-digit',
+            month: 'short',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+          });
+        } catch {
+          return String(iso || '');
+        }
+      }
+
+      function renderTable() {
+        const q = (searchInput.value || '').trim().toLowerCase();
+        const filtered = (q
+          ? allEntries.filter(
+              (r) =>
+                String(r.roll_no).toLowerCase().includes(q) ||
+                String(r.full_name).toLowerCase().includes(q) ||
+                String(r.feedback_comment || '').toLowerCase().includes(q)
+            )
+          : [...allEntries]
+        ).sort((a, b) =>
+          String(a.full_name || '').localeCompare(String(b.full_name || ''), undefined, { sensitivity: 'base' })
+        );
+
+        if (!filtered.length) {
+          tbody.innerHTML = '<tr><td colspan="7">No matching entries yet.</td></tr>';
+          return;
+        }
+
+        tbody.textContent = '';
+        filtered.forEach((row, idx) => {
+          const tr = document.createElement('tr');
+
+          const tdIdx = document.createElement('td');
+          tdIdx.setAttribute('data-label', '#');
+          tdIdx.textContent = String(idx + 1);
+
+          const tdRoll = document.createElement('td');
+          tdRoll.setAttribute('data-label', 'Roll No');
+          tdRoll.textContent = row.roll_no;
+
+          const tdName = document.createElement('td');
+          tdName.setAttribute('data-label', 'Full Name');
+          tdName.textContent = row.full_name;
+
+          const tdRating = document.createElement('td');
+          tdRating.setAttribute('data-label', 'Rating');
+          if (row.feedback_rating) {
+            const pill = document.createElement('span');
+            pill.className = 'rating-pill';
+            pill.textContent = `${row.feedback_rating} / 5`;
+            tdRating.appendChild(pill);
+          } else {
+            tdRating.textContent = '—';
+          }
+
+          const tdComment = document.createElement('td');
+          tdComment.setAttribute('data-label', 'Feedback');
+          tdComment.className = 'feedback-cell';
+          tdComment.textContent = row.feedback_comment || '—';
+
+          const tdTime = document.createElement('td');
+          tdTime.setAttribute('data-label', 'Checked In');
+          tdTime.textContent = formatIST(row.checked_in_at);
+
+          const tdAct = document.createElement('td');
+          const actionsWrap = document.createElement('div');
+          actionsWrap.className = 'row-actions';
+
+          const editBtn = document.createElement('button');
+          editBtn.type = 'button';
+          editBtn.className = 'btn btn-edit';
+          editBtn.textContent = 'Edit';
+          editBtn.addEventListener('click', () => {
+            ovName.value = row.full_name;
+            ovRoll.value = row.roll_no;
+            ovForce.checked = true;
+            ovForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => {
+              ovName.focus();
+              ovName.select();
+            }, 200);
+          });
+
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'btn btn-danger';
+          delBtn.textContent = 'Remove';
+          delBtn.addEventListener('click', () => {
+            if (window.confirm(`Remove ${row.full_name} (${row.roll_no}) from check-ins?`)) {
+              removeEntry(row.roll_no);
+            }
+          });
+          actionsWrap.append(editBtn, delBtn);
+          tdAct.appendChild(actionsWrap);
+
+          tr.append(tdIdx, tdRoll, tdName, tdRating, tdComment, tdTime, tdAct);
+          tbody.appendChild(tr);
+        });
+      }
+
+      function updateKpis() {
+        kpiTotal.textContent = String(allEntries.length);
+      }
+
+      function toIstInputValue(iso) {
+        try {
+          const d = new Date(iso);
+          const istMs = d.getTime() + 330 * 60 * 1000;
+          return new Date(istMs).toISOString().slice(0, 16);
+        } catch {
+          return '2026-11-26T12:30';
+        }
+      }
+
+      function showTimerStatus(unlockIso, serverNowIso) {
+        if (timerInput && unlockIso) {
+          timerInput.value = toIstInputValue(unlockIso);
+        }
+        if (!timerStatus || !unlockIso) return;
+        const nowMs = serverNowIso ? Date.parse(serverNowIso) : Date.now();
+        const unlockMs = Date.parse(unlockIso);
+        const locked = nowMs < unlockMs;
+        showMsg(
+          timerStatus,
+          locked
+            ? `Locked until ${formatIST(unlockIso)} IST`
+            : `Unlocked since ${formatIST(unlockIso)} IST`,
+          false
+        );
+      }
+
+      async function saveUnlockIso(isoStr) {
+        try {
+          const resp = await fetch('/api/admin/feedback-config', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ feedbackUnlockAt: isoStr })
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || !data.ok) {
+            showMsg(timerStatus, data.error || 'Could not update timer.', true);
+            return;
+          }
+          showTimerStatus(data.feedbackUnlockAt, data.serverNow);
+        } catch {
+          showMsg(timerStatus, 'Network error saving timer.', true);
+        }
+      }
+
+      if (timerForm) {
+        timerForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const val = (timerInput?.value || '').trim();
+          if (!val) return;
+          saveUnlockIso(`${val}:00+05:30`);
+        });
+      }
+
+      if (unlockNowBtn) {
+        unlockNowBtn.addEventListener('click', () => {
+          saveUnlockIso(new Date().toISOString());
+        });
+      }
+
+      function applyDashboardPayload(data) {
+        allEntries = data.entries || [];
+        pinSection.hidden = true;
+        dashboardSection.hidden = false;
+        if (lockBtn) lockBtn.hidden = false;
+        updateKpis();
+        renderTable();
+        if (data.feedbackUnlockAt) {
+          showTimerStatus(data.feedbackUnlockAt, data.serverNow);
+        }
+      }
+
+      async function loadEntries() {
+        const resp = await fetch('/api/admin/entries', { credentials: 'same-origin', cache: 'no-store' });
+        if (resp.status === 401) {
+          pinSection.hidden = false;
+          dashboardSection.hidden = true;
+          if (lockBtn) lockBtn.hidden = true;
+          return false;
+        }
+        const data = await resp.json();
+        if (!resp.ok || !data.ok) {
+          throw new Error(data.error || 'Failed to load entries');
+        }
+        applyDashboardPayload(data);
+        return true;
+      }
+
+      async function removeEntry(rollNo) {
+        const resp = await fetch(`/api/admin/entries?rollNo=${encodeURIComponent(rollNo)}`, {
+          method: 'DELETE',
+          credentials: 'same-origin'
+        });
+        if (resp.ok) {
+          await loadEntries();
+        }
+      }
+
+      pinForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        showMsg(pinError, '', false);
+        if (pinSubmitBtn) {
+          pinSubmitBtn.disabled = true;
+          pinSubmitBtn.textContent = 'Unlocking...';
+        }
+        try {
+          const resp = await fetch('/api/admin/login', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ pin: pinInput.value })
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || !data.ok) {
+            const msg = resp.status === 404 || resp.status === 405
+              ? 'Backend API not active on this host yet. Deploy to Vercel with DATABASE_URL to unlock Coordinator Portal.'
+              : (data.error || 'Invalid PIN.');
+            showMsg(pinError, msg, true);
+            return;
+          }
+          pinInput.value = '';
+          if (Array.isArray(data.entries)) {
+            applyDashboardPayload(data);
+          } else {
+            await loadEntries();
+          }
+        } catch {
+          showMsg(pinError, 'Unable to reach /api/admin/login. Deploy to Vercel with DATABASE_URL to use Coordinator Portal.', true);
+        } finally {
+          if (pinSubmitBtn) {
+            pinSubmitBtn.disabled = false;
+            pinSubmitBtn.textContent = 'Unlock Portal';
+          }
+        }
+      });
+
+      ovForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        showMsg(ovMsg, '', false);
+        try {
+          const resp = await fetch('/api/admin/override', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: ovName.value,
+              rollNo: ovRoll.value,
+              overwriteExisting: ovForce.checked
+            })
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || !data.ok) {
+            showMsg(ovMsg, data.error || 'Could not save entry.', true);
+            return;
+          }
+          showMsg(ovMsg, `Saved: ${data.entry.full_name} (${data.entry.roll_no})`, false);
+          ovName.value = '';
+          ovRoll.value = '';
+          ovForce.checked = false;
+          await loadEntries();
+        } catch {
+          showMsg(ovMsg, 'Network error saving direct entry.', true);
+        }
+      });
+
+      searchInput.addEventListener('input', renderTable);
+      refreshBtn.addEventListener('click', loadEntries);
+      if (lockBtn) {
+        lockBtn.addEventListener('click', async () => {
+          await fetch('/api/admin/logout', { method: 'POST', credentials: 'same-origin' }).catch(() => {});
+          pinSection.hidden = false;
+          dashboardSection.hidden = true;
+          lockBtn.hidden = true;
+        });
+      }
+
+      // Auto-check existing admin cookie on page load
+      loadEntries().catch(() => {});
+
+      // Gentle auto-refresh every 30s ONLY while tab is visible and unlocked (zero idle quota usage)
+      setInterval(() => {
+        if (!dashboardSection.hidden && document.visibilityState === 'visible') {
+          loadEntries().catch(() => {});
+        }
+      }, 30000);
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && !dashboardSection.hidden) {
+          loadEntries().catch(() => {});
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

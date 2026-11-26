@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bg192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1633"/>
+      <stop offset="60%" stop-color="#112452"/>
+      <stop offset="100%" stop-color="#6E1423"/>
+    </linearGradient>
+    <linearGradient id="gold192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE99C"/>
+      <stop offset="50%" stop-color="#F4C430"/>
+      <stop offset="100%" stop-color="#C89617"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="44" fill="url(#bg192)"/>
+  <circle cx="96" cy="96" r="74" fill="none" stroke="url(#gold192)" stroke-width="5" opacity="0.85"/>
+  <path d="M96 40l13 33 33 13-33 13-13 33-13-33-33-13 33-13z" fill="url(#gold192)"/>
+  <text x="96" y="154" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="22" fill="#FFFAF0" letter-spacing="3">MCA 26</text>
+</svg>

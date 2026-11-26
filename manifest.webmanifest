@@ -1,0 +1,19 @@
+{
+  "name": "Poornaprajna MCA Freshers Day 2026",
+  "short_name": "Freshers 2026",
+  "description": "Official QR Welcome Experience for Poornaprajna Institute of Management – Department of MCA Freshers Day 2026.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A1633",
+  "theme_color": "#0A1633",
+  "icons": [
+    {
+      "src": "assets/logo.png",
+      "sizes": "523x523",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
